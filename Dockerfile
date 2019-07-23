@@ -23,8 +23,8 @@ ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
 # User not root
-RUN chown user:user -R $APPDIR
-USER user
+#RUN chown user:user -R $APPDIR
+#USER user
 
 # Start the main process.
 CMD ["rails", "server", "-b", "0.0.0.0"]
