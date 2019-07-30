@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Identifier:</strong>
+  <%= @plot.identifier %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @plot.description %>
+</p>
+
+<p>
+  <strong>Surface:</strong>
+  <%= @plot.surface %>
+</p>
+
+<p>
+  <strong>Greenhouse:</strong>
+  <%= @plot.greenhouse %>
+</p>
+
+<%= link_to 'Edit', edit_plot_path(@plot) %> |
+<%= link_to 'Back', plots_path %>
