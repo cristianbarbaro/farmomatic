@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @plantation.comment %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @plantation.amount %>
+</p>
+
+<p>
+  <strong>Plot:</strong>
+  <%= @plantation.plot %>
+</p>
+
+<p>
+  <strong>Species:</strong>
+  <%= @plantation.species %>
+</p>
+
+<%= link_to 'Edit', edit_plantation_path(@plantation) %> |
+<%= link_to 'Back', plantations_path %>

@@ -1,0 +1,37 @@
+<%= form_with(model: plantation, local: true) do |form| %>
+  <% if plantation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(plantation.errors.count, "error") %> prohibited this plantation from being saved:</h2>
+
+      <ul>
+      <% plantation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_field :comment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :plot_id %>
+    <%= form.text_field :plot_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :species_id %>
+    <%= form.text_field :species_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

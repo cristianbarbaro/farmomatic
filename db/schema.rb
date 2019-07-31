@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_31_175859) do
+ActiveRecord::Schema.define(version: 2019_07_31_183138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(version: 2019_07_31_175859) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "plantations", force: :cascade do |t|
+    t.string "comment"
+    t.float "amount"
+    t.bigint "plot_id"
+    t.bigint "species_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["plot_id"], name: "index_plantations_on_plot_id"
+    t.index ["species_id"], name: "index_plantations_on_species_id"
   end
 
   create_table "plots", force: :cascade do |t|
@@ -65,4 +76,6 @@ ActiveRecord::Schema.define(version: 2019_07_31_175859) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "plantations", "plots"
+  add_foreign_key "plantations", "species"
 end
