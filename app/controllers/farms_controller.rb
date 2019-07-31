@@ -2,13 +2,11 @@ class FarmsController < ApplicationController
   before_action :set_farm, only: [:show, :edit, :update, :destroy]
 
   # GET /farms
-  # GET /farms.json
   def index
     @farms = Farm.all
   end
 
   # GET /farms/1
-  # GET /farms/1.json
   def show
   end
 
@@ -22,7 +20,6 @@ class FarmsController < ApplicationController
   end
 
   # POST /farms
-  # POST /farms.json
   def create
     @farm = Farm.new(farm_params)
 
@@ -34,7 +31,6 @@ class FarmsController < ApplicationController
   end
 
   # PATCH/PUT /farms/1
-  # PATCH/PUT /farms/1.json
   def update
 
       if @farm.update(farm_params)
@@ -45,7 +41,6 @@ class FarmsController < ApplicationController
   end
 
   # DELETE /farms/1
-  # DELETE /farms/1.json
   def destroy
     @farm.destroy
       redirect_to farms_url, notice: 'Farm was successfully destroyed.'
