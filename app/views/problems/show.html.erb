@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @problem.comment %>
+</p>
+
+<p>
+  <strong>Type problem:</strong>
+  <%= @problem.type_problem %>
+</p>
+
+<p>
+  <strong>Plot:</strong>
+  <%= @problem.plot %>
+</p>
+
+<%= link_to 'Edit', edit_problem_path(@problem) %> |
+<%= link_to 'Back', problems_path %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comment: MyString
+  type_problem: one
+  plot: one
+
+two:
+  comment: MyString
+  type_problem: two
+  plot: two
