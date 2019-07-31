@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_31_151447) do
+ActiveRecord::Schema.define(version: 2019_07_31_175859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(version: 2019_07_31_151447) do
     t.index ["farm_id"], name: "index_plots_on_farm_id"
   end
 
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.string "composition"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "species", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -49,8 +57,8 @@ ActiveRecord::Schema.define(version: 2019_07_31_151447) do
   end
 
   create_table "varieties", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "scientificName", null: false
+    t.string "name"
+    t.string "scientificName"
     t.string "url"
     t.string "description"
     t.datetime "created_at", null: false
