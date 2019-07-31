@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_30_123829) do
+ActiveRecord::Schema.define(version: 2019_07_31_151447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,10 +27,34 @@ ActiveRecord::Schema.define(version: 2019_07_30_123829) do
     t.text "description"
     t.string "surface"
     t.boolean "greenhouse"
+    t.bigint "farm_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "farm_id", null: false
     t.index ["farm_id"], name: "index_plots_on_farm_id"
+  end
+
+  create_table "species", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "type_problems", force: :cascade do |t|
+    t.string "name"
+    t.string "scientificName"
+    t.string "url"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "varieties", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "scientificName", null: false
+    t.string "url"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

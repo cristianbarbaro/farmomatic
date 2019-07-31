@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :varieties
   resources :type_problems
   resources :species
   resources :plots
