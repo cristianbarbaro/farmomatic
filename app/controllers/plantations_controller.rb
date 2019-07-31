@@ -2,13 +2,11 @@ class PlantationsController < ApplicationController
   before_action :set_plantation, only: [:show, :edit, :update, :destroy]
 
   # GET /plantations
-  # GET /plantations.json
   def index
     @plantations = Plantation.all
   end
 
   # GET /plantations/1
-  # GET /plantations/1.json
   def show
   end
 
@@ -22,43 +20,29 @@ class PlantationsController < ApplicationController
   end
 
   # POST /plantations
-  # POST /plantations.json
   def create
     @plantation = Plantation.new(plantation_params)
 
-    respond_to do |format|
-      if @plantation.save
-        format.html { redirect_to @plantation, notice: 'Plantation was successfully created.' }
-        format.json { render :show, status: :created, location: @plantation }
-      else
-        format.html { render :new }
-        format.json { render json: @plantation.errors, status: :unprocessable_entity }
-      end
+    if @plantation.save
+      redirect_to @plantation, notice: 'Plantation was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /plantations/1
-  # PATCH/PUT /plantations/1.json
   def update
-    respond_to do |format|
-      if @plantation.update(plantation_params)
-        format.html { redirect_to @plantation, notice: 'Plantation was successfully updated.' }
-        format.json { render :show, status: :ok, location: @plantation }
-      else
-        format.html { render :edit }
-        format.json { render json: @plantation.errors, status: :unprocessable_entity }
-      end
+    if @plantation.update(plantation_params)
+      redirect_to @plantation, notice: 'Plantation was successfully updated.'
+    else
+      render :edit
     end
   end
 
   # DELETE /plantations/1
-  # DELETE /plantations/1.json
   def destroy
     @plantation.destroy
-    respond_to do |format|
-      format.html { redirect_to plantations_url, notice: 'Plantation was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to plantations_url, notice: 'Plantation was successfully destroyed.'
   end
 
   private
