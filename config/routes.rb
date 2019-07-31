@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :type_problems
   resources :species
   resources :plots
   resources :farms

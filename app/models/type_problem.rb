@@ -1,0 +1,2 @@
+class TypeProblem < ApplicationRecord
+end

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @type_problem.name %>
+</p>
+
+<p>
+  <strong>Scientificname:</strong>
+  <%= @type_problem.scientificName %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @type_problem.url %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @type_problem.description %>
+</p>
+
+<%= link_to 'Edit', edit_type_problem_path(@type_problem) %> |
+<%= link_to 'Back', type_problems_path %>
