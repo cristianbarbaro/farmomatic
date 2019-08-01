@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 2019_08_01_145708) do
 
   create_table "type_problems", force: :cascade do |t|
     t.string "name"
-    t.string "scientificName"
+    t.string "scientific_name"
     t.string "url"
     t.string "description"
     t.datetime "created_at", null: false
@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 2019_08_01_145708) do
 
   create_table "varieties", force: :cascade do |t|
     t.string "name"
-    t.string "scientificName"
+    t.string "scientific_name"
     t.string "url"
     t.string "description"
     t.datetime "created_at", null: false

@@ -17,7 +17,7 @@ class VarietiesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create variety" do
     assert_difference('Variety.count') do
-      post varieties_url, params: { variety: { description: @variety.description, name: @variety.name, scientificName: @variety.scientificName, url: @variety.url } }
+      post varieties_url, params: { variety: { description: @variety.description, name: @variety.name, scientific_name: @variety.scientific_name, url: @variety.url } }
     end
 
     assert_redirected_to variety_url(Variety.last)
@@ -34,7 +34,7 @@ class VarietiesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update variety" do
-    patch variety_url(@variety), params: { variety: { description: @variety.description, name: @variety.name, scientificName: @variety.scientificName, url: @variety.url } }
+    patch variety_url(@variety), params: { variety: { description: @variety.description, name: @variety.name, scientific_name: @variety.scientific_name, url: @variety.url } }
     assert_redirected_to variety_url(@variety)
   end
 

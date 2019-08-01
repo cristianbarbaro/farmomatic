@@ -16,7 +16,7 @@ class TypeProblemsTest < ApplicationSystemTestCase
 
     fill_in "Description", with: @type_problem.description
     fill_in "Name", with: @type_problem.name
-    fill_in "Scientificname", with: @type_problem.scientificName
+    fill_in "ScientificName", with: @type_problem.scientific_name
     fill_in "Url", with: @type_problem.url
     click_on "Create Type problem"
 
@@ -30,7 +30,7 @@ class TypeProblemsTest < ApplicationSystemTestCase
 
     fill_in "Description", with: @type_problem.description
     fill_in "Name", with: @type_problem.name
-    fill_in "Scientificname", with: @type_problem.scientificName
+    fill_in "ScientificName", with: @type_problem.scientific_name
     fill_in "Url", with: @type_problem.url
     click_on "Update Type problem"
 
