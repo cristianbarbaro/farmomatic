@@ -1,0 +1,37 @@
+<%= form_with(model: product_application, local: true) do |form| %>
+  <% if product_application.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product_application.errors.count, "error") %> prohibited this product_application from being saved:</h2>
+
+      <ul>
+      <% product_application.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_field :comment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :product_id %>
+    <%= form.text_field :product_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :plot_id %>
+    <%= form.text_field :plot_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @product_application.comment %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @product_application.amount %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @product_application.product %>
+</p>
+
+<p>
+  <strong>Plot:</strong>
+  <%= @product_application.plot %>
+</p>
+
+<%= link_to 'Edit', edit_product_application_path(@product_application) %> |
+<%= link_to 'Back', product_applications_path %>
