@@ -12,12 +12,12 @@
 
 <p>
   <strong>Plot:</strong>
-  <%= @plantation.plot %>
+  <%= @plantation.plot.identifier %>
 </p>
 
 <p>
   <strong>Species:</strong>
-  <%= @plantation.species %>
+  <%= @plantation.species.name %>
 </p>
 
 <%= link_to 'Edit', edit_plantation_path(@plantation) %> |

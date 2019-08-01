@@ -18,8 +18,8 @@
       <tr>
         <td><%= product_application.comment %></td>
         <td><%= product_application.amount %></td>
-        <td><%= product_application.product %></td>
-        <td><%= product_application.plot %></td>
+        <td><%= product_application.product.name %></td>
+        <td><%= product_application.plot.identifier %></td>
         <td><%= link_to 'Show', product_application %></td>
         <td><%= link_to 'Edit', edit_product_application_path(product_application) %></td>
         <td><%= link_to 'Destroy', product_application, method: :delete, data: { confirm: 'Are you sure?' } %></td>

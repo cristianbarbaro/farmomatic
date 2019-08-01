@@ -18,8 +18,8 @@
       <tr>
         <td><%= plantation.comment %></td>
         <td><%= plantation.amount %></td>
-        <td><%= plantation.plot %></td>
-        <td><%= plantation.species %></td>
+        <td><%= plantation.plot.identifier %></td>
+        <td><%= plantation.species.name %></td>
         <td><%= link_to 'Show', plantation %></td>
         <td><%= link_to 'Edit', edit_plantation_path(plantation) %></td>
         <td><%= link_to 'Destroy', plantation, method: :delete, data: { confirm: 'Are you sure?' } %></td>

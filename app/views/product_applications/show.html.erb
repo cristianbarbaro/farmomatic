@@ -12,12 +12,12 @@
 
 <p>
   <strong>Product:</strong>
-  <%= @product_application.product %>
+  <%= @product_application.product.name %>
 </p>
 
 <p>
   <strong>Plot:</strong>
-  <%= @product_application.plot %>
+  <%= @product_application.plot.identifier %>
 </p>
 
 <%= link_to 'Edit', edit_product_application_path(@product_application) %> |

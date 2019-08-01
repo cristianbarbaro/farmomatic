@@ -7,12 +7,12 @@
 
 <p>
   <strong>Type problem:</strong>
-  <%= @problem.type_problem %>
+  <%= @problem.type_problem.name %>
 </p>
 
 <p>
   <strong>Plot:</strong>
-  <%= @problem.plot %>
+  <%= @problem.plot.identifier %>
 </p>
 
 <%= link_to 'Edit', edit_problem_path(@problem) %> |

@@ -12,12 +12,12 @@
 
 <p>
   <strong>Plot:</strong>
-  <%= @crop.plot %>
+  <%= @crop.plot.identifier %>
 </p>
 
 <p>
   <strong>Variety:</strong>
-  <%= @crop.variety %>
+  <%= @crop.variety.name %>
 </p>
 
 <%= link_to 'Edit', edit_crop_path(@crop) %> |

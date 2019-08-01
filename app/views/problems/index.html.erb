@@ -16,8 +16,8 @@
     <% @problems.each do |problem| %>
       <tr>
         <td><%= problem.comment %></td>
-        <td><%= problem.type_problem %></td>
-        <td><%= problem.plot %></td>
+        <td><%= problem.type_problem.name %></td>
+        <td><%= problem.plot.identifier %></td>
         <td><%= link_to 'Show', problem %></td>
         <td><%= link_to 'Edit', edit_problem_path(problem) %></td>
         <td><%= link_to 'Destroy', problem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
