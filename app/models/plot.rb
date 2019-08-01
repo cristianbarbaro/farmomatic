@@ -3,4 +3,5 @@ class Plot < ApplicationRecord
     has_many :plantations
     has_many :problems
     has_many :product_applications
+    has_many :crops
 end
