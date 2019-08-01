@@ -1,5 +1,5 @@
 class TypeProblem < ApplicationRecord
     has_many :problems
 
-    validates :name, :scientific_name_id, presence: true
+    validates :name, :scientific_name, presence: true
 end
