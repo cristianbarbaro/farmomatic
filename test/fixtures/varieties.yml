@@ -2,12 +2,12 @@
 
 one:
   name: MyString
-  scientificName: MyString
+  scientific_name: MyString
   url: MyString
   description: MyString
 
 two:
   name: MyString
-  scientificName: MyString
+  scientific_name: MyString
   url: MyString
   description: MyString

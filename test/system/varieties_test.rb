@@ -16,7 +16,7 @@ class VarietiesTest < ApplicationSystemTestCase
 
     fill_in "Description", with: @variety.description
     fill_in "Name", with: @variety.name
-    fill_in "Scientificname", with: @variety.scientificName
+    fill_in "scientific_name", with: @variety.scientific_name
     fill_in "Url", with: @variety.url
     click_on "Create Variety"
 
@@ -30,7 +30,7 @@ class VarietiesTest < ApplicationSystemTestCase
 
     fill_in "Description", with: @variety.description
     fill_in "Name", with: @variety.name
-    fill_in "Scientificname", with: @variety.scientificName
+    fill_in "scientific_name", with: @variety.scientific_name
     fill_in "Url", with: @variety.url
     click_on "Update Variety"
 
