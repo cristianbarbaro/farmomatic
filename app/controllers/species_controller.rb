@@ -32,11 +32,10 @@ class SpeciesController < ApplicationController
 
   # PATCH/PUT /species/1
   def update
-      if @species.update(species_params)
-        redirect_to @species, notice: 'Species was successfully updated.'
-      else
-        render :edit
-      end
+    if @species.update(species_params)
+      redirect_to @species, notice: 'Species was successfully updated.'
+    else
+      render :edit
     end
   end
 

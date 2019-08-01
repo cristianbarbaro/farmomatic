@@ -4,4 +4,6 @@ class Plot < ApplicationRecord
     has_many :problems
     has_many :product_applications
     has_many :crops
+
+    validates :identifier, :surface, :greenhouse, :farm_id, presence: true
 end
