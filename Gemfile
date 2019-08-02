@@ -63,5 +63,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'dotenv-rails'
 
-# Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+# Management users and authentication
+gem 'devise'
