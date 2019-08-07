@@ -24,6 +24,7 @@ class FarmsController < ApplicationController
     @farm = Farm.new(farm_params)
 
       if @farm.save
+        @farm.users << current_user
         redirect_to @farm, notice: 'Farm was successfully created.'
       else
         render :new
