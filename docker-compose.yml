@@ -3,7 +3,10 @@ services:
   db:
     image: postgres
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data      
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
   web:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
@@ -13,4 +16,12 @@ services:
       - "3000:3000"
     depends_on:
       - db
+  adminer:
+    image: dockette/adminer
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    environment:
+      ADMINER_DEFAULT_SERVER: db
 
