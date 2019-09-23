@@ -65,3 +65,5 @@ gem 'dotenv-rails'
 
 # Management users and authentication
 gem 'devise'
+
+gem 'rolify'

@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  rolify
   has_many :assigments
   has_many :farms, :through => :assigments
 
