@@ -26,7 +26,7 @@ class FarmsController < ApplicationController
       if @farm.save
         @farm.users << current_user
         # Add admin in farm role to user associated. User is current_user (logged in)
-        current_user.add_role :admin, @farm
+        current_user.add_role :owner, @farm
         redirect_to @farm, notice: 'Farm was successfully created.'
       else
         render :new
@@ -35,7 +35,6 @@ class FarmsController < ApplicationController
 
   # PATCH/PUT /farms/1
   def update
-
       if @farm.update(farm_params)
         redirect_to @farm, notice: 'Farm was successfully updated.'
       else
@@ -51,7 +50,7 @@ class FarmsController < ApplicationController
 
   private
     def check_permissions_farm(farm)
-      current_user.has_role? :admin, farm or current_user.has_role? :viewer, farm
+      current_user.has_role? :owner, farm or current_user.has_role? :viewer, farm
     end
 
   # Use callbacks to share common setup or constraints between actions.
