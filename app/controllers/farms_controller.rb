@@ -3,7 +3,7 @@ class FarmsController < ApplicationController
 
   # GET /farms
   def index
-    @farms = Farm.all
+    @farms = Farm.with_roles([:admin, :viewer], current_user)
   end
 
   # GET /farms/1
@@ -25,6 +25,8 @@ class FarmsController < ApplicationController
 
       if @farm.save
         @farm.users << current_user
+        # Add admin in farm role to user associated. User is current_user (logged in)
+        current_user.add_role :admin, @farm
         redirect_to @farm, notice: 'Farm was successfully created.'
       else
         render :new
@@ -48,9 +50,16 @@ class FarmsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    def check_permissions_farm(farm)
+      current_user.has_role? :admin, farm or current_user.has_role? :viewer, farm
+    end
+
+  # Use callbacks to share common setup or constraints between actions.
     def set_farm
       @farm = Farm.find(params[:id])
+      if not check_permissions_farm @farm
+        head 403
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
