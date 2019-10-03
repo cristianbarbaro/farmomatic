@@ -1,9 +1,10 @@
 class PlotsController < ApplicationController
   before_action :set_plot, only: [:show, :edit, :update, :destroy]
+  before_action :set_farm
 
-  # GET /plots
+  # GET /farms/:farm_id/plots
   def index
-    @plots = Plot.all
+    @plots = @farm.plots
   end
 
   # GET /plots/1
@@ -24,7 +25,7 @@ class PlotsController < ApplicationController
     @plot = Plot.new(plot_params)
 
     if @plot.save
-      redirect_to @plot, notice: 'Plot was successfully created.'
+      redirect_to [@farm, @plot], notice: 'Plot was successfully created.'
     else
       render :new
     end
@@ -33,7 +34,7 @@ class PlotsController < ApplicationController
   # PATCH/PUT /plots/1
   def update
     if @plot.update(plot_params)
-      redirect_to @plot, notice: 'Plot was successfully updated.'
+      redirect_to [@farm, @plot], notice: 'Plot was successfully updated.'
     else
       render :edit
     end
@@ -50,6 +51,10 @@ class PlotsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_plot
       @plot = Plot.find(params[:id])
+    end
+
+    def set_farm
+      @farm = Farm.find(params[:farm_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

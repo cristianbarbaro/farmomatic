@@ -3,7 +3,7 @@ class FarmsController < ApplicationController
 
   # GET /farms
   def index
-    @farms = Farm.with_roles([:admin, :viewer], current_user)
+    @farms = Farm.with_roles([:owner, :viewer], current_user)
   end
 
   # GET /farms/1

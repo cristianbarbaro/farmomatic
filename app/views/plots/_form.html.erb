@@ -1,4 +1,4 @@
-<%= form_with(model: plot, local: true) do |form| %>
+<%= form_with(model: [farm, plot], local: true) do |form| %>
   <% if plot.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(plot.errors.count, "error") %> prohibited this plot from being saved:</h2>
