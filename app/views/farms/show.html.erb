@@ -15,5 +15,14 @@
   <%= @farm.address %>
 </p>
 
+<p>
+  <strong>Plots:</strong>
+  <ul>
+    <% @farm.plots.each do |plot| %>
+      <li><%= link_to "#{plot.identifier}", [@farm, plot], target: :_blank %></li>
+    <% end %>  
+  </ul>
+</p>
+
 <%= link_to 'Edit', edit_farm_path(@farm) %> |
 <%= link_to 'Back', farms_path %>

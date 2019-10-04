@@ -23,6 +23,7 @@ class PlotsController < ApplicationController
   # POST /plots
   def create
     @plot = Plot.new(plot_params)
+    @plot.farm = @farm # la granja sobre la que trabajamos, no debe cambiar ni ser posible seleccionarla
 
     if @plot.save
       redirect_to [@farm, @plot], notice: 'Plot was successfully created.'
@@ -59,6 +60,6 @@ class PlotsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plot_params
-      params.require(:plot).permit(:identifier, :description, :surface, :greenhouse, :farm_id)
+      params.require(:plot).permit(:identifier, :description, :surface, :greenhouse)
     end
 end
