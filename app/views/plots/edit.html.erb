@@ -2,5 +2,5 @@
 
 <%= render 'form', plot: @plot, farm: @farm %>
 
-<%= link_to 'Show', farm_plot_path(@farm, @plot) %> |
+<%= link_to 'Show', [@farm, @plot] %> |
 <%= link_to 'Back', farm_plots_path(@farm) %>
