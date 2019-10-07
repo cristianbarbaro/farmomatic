@@ -1,5 +1,5 @@
 <h1>New Crop</h1>
 
-<%= render 'form', crop: @crop %>
+<%= render 'form', crop: @crop, plot: @plot, farm: @farm %>
 
-<%= link_to 'Back', crops_path %>
+<%= link_to 'Back', farm_plot_crops_path %>

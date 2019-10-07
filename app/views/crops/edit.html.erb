@@ -1,6 +1,6 @@
 <h1>Editing Crop</h1>
 
-<%= render 'form', crop: @crop %>
+<%= render 'form', crop: @crop, plot: @plot, farm: @farm %>
 
-<%= link_to 'Show', @crop %> |
-<%= link_to 'Back', crops_path %>
+<%= link_to 'Show', [@farm, @plot, @crop] %> |
+<%= link_to 'Back', farm_plot_crops_path %>

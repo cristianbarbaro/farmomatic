@@ -20,9 +20,9 @@
         <td><%= crop.amount %></td>
         <td><%= crop.plot.identifier %></td>
         <td><%= crop.variety.name %></td>
-        <td><%= link_to 'Show', crop %></td>
-        <td><%= link_to 'Edit', edit_crop_path(crop) %></td>
-        <td><%= link_to 'Destroy', crop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', [@farm, @plot, crop] %></td>
+        <td><%= link_to 'Edit', edit_farm_plot_crop_path(@farm, @plot, crop) %></td>
+        <td><%= link_to 'Destroy', [@farm, @plot, crop], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Crop', new_crop_path %>
+<%= link_to 'New Crop', new_farm_plot_crop_path %>
