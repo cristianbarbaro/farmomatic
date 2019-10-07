@@ -1,6 +1,6 @@
 class PlotsController < ApplicationController
-  before_action :set_plot, only: [:show, :edit, :update, :destroy]
   before_action :set_farm
+  before_action :set_plot, only: [:show, :edit, :update, :destroy]
 
   # GET /farms/:farm_id/plots
   def index
@@ -13,7 +13,7 @@ class PlotsController < ApplicationController
 
   # GET /farms/:farm_id/plots/new
   def new
-    @plot = Plot.new
+    @plot = @farm.plots.build
   end
 
   # GET /farms/:farm_id/plots/:id
@@ -22,11 +22,10 @@ class PlotsController < ApplicationController
 
   # POST /farms/:farm_id/plots
   def create
-    @plot = Plot.new(plot_params)
-    @plot.farm = @farm # la granja sobre la que trabajamos, no debe cambiar ni ser posible seleccionarla
+    @plot = @farm.plots.build(plot_params)
 
     if @plot.save
-      redirect_to [@farm, @plot], notice: 'Plot was successfully created.'
+      redirect_to farm_plots_path(@farm), notice: 'Plot was successfully created.'
     else
       render :new
     end
@@ -35,7 +34,7 @@ class PlotsController < ApplicationController
   # PATCH/PUT /farms/:farm_id/plots/1
   def update
     if @plot.update(plot_params)
-      redirect_to [@farm, @plot], notice: 'Plot was successfully updated.'
+      redirect_to farm_plot_path(@farm), notice: 'Plot was successfully updated.'
     else
       render :edit
     end
@@ -44,14 +43,14 @@ class PlotsController < ApplicationController
   # DELETE /farms/:farm_id/plots/1
   def destroy
     @plot.destroy
-      redirect_to plots_url, notice: 'Plot was successfully destroyed.'
+      redirect_to farm_plots_path(@farm), notice: 'Plot was successfully destroyed.'
       head :no_content
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_plot
-      @plot = Plot.find(params[:id])
+      @plot = @farm.plots.find(params[:id])
     end
 
     def set_farm

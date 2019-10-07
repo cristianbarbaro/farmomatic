@@ -20,9 +20,9 @@
         <td><%= plot.description %></td>
         <td><%= plot.surface %></td>
         <td><%= plot.greenhouse %></td>
-        <td><%= link_to 'Show', farm_plot_path(@farm, plot) %></td>
+        <td><%= link_to 'Show plot', [@farm, plot] %></td>
         <td><%= link_to 'Edit', edit_farm_plot_path(@farm, plot) %></td>
-        <td><%= link_to 'Destroy', farm_plot_path(@farm, plot), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', [@farm, plot], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
