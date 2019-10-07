@@ -1,59 +1,68 @@
 class ProblemsController < ApplicationController
+  before_action :set_farm
+  before_action :set_plot
   before_action :set_problem, only: [:show, :edit, :update, :destroy]
 
-  # GET /problems
-  # GET /problems.json
+  # GET /farms/:farm_id/plots/:plot_id/problems
   def index
-    @problems = Problem.all
+    @problems = @plot.problems
   end
 
-  # GET /problems/1
+  # GET /farms/:farm_id/plots/:plot_id/problems/:id
   def show
   end
 
-  # GET /problems/new
+  # GET /farms/:farm_id/plots/:plot_id/problems/new
   def new
-    @problem = Problem.new
+    @problem = @plot.problems.build
   end
 
-  # GET /problems/1/edit
+  # GET /farms/:farm_id/plots/:plot_id/problems/:id/edit
   def edit
   end
 
-  # POST /problems
+  # POST /farms/:farm_id/plots/:plot_id/problems
   def create
-    @problem = Problem.new(problem_params)
+    @problem = @plot.problems.build(problem_params)
 
     if @problem.save
-      redirect_to @problem, notice: 'Problem was successfully created.'
+      redirect_to farm_plot_problems_path(@farm, @plot), notice: 'Problem was successfully created.'
     else
       render :new
     end
   end
 
-  # PATCH/PUT /problems/1
+  # PATCH/PUT /farms/:farm_id/plots/:plot_id/problems/:id
   def update
     if @problem.update(problem_params)
-      redirect_to @problem, notice: 'Problem was successfully updated.'
+      redirect_to farm_plot_problem_path(@farm, @plot), notice: 'Problem was successfully updated.'
     else
       render :edit
     end
   end
 
-  # DELETE /problems/1
+  # DELETE /farms/:farm_id/plots/:plot_id/problems/:id
   def destroy
     @problem.destroy
-    redirect_to problems_url, notice: 'Problem was successfully destroyed.'
+    redirect_to farm_plot_problems_path, notice: 'Problem was successfully destroyed.'
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_problem
-      @problem = Problem.find(params[:id])
+      @problem = @plot.problems.find(params[:id])
+    end
+
+    def set_farm
+      @farm = Farm.find(params[:farm_id])
+    end
+
+    def set_plot
+      @plot = @farm.plots.find(params[:plot_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def problem_params
-      params.require(:problem).permit(:comment, :type_problem_id, :plot_id)
+      params.require(:problem).permit(:comment, :type_problem_id)
     end
 end

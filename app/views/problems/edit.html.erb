@@ -1,6 +1,6 @@
 <h1>Editing Problem</h1>
 
-<%= render 'form', problem: @problem %>
+<%= render 'form', problem: @problem, plot: @plot, farm: @farm %>
 
-<%= link_to 'Show', @problem %> |
-<%= link_to 'Back', problems_path %>
+<%= link_to 'Show', [@farm, @plot, @problem] %> |
+<%= link_to 'Back', farm_plot_problems_path %>

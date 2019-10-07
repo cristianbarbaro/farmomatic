@@ -1,4 +1,4 @@
-<%= form_with(model: problem, local: true) do |form| %>
+<%= form_with(model: [farm, plot, problem], local: true) do |form| %>
   <% if problem.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(problem.errors.count, "error") %> prohibited this problem from being saved:</h2>
@@ -19,11 +19,6 @@
   <div class="field">
     <%= form.label :type_problem_id %>
     <%= form.select(:type_problem_id, type_problems_for_select, :prompt => 'Select') %>
-  </div>
-
-  <div class="field">
-    <%= form.label :plot_id %>
-    <%= form.select(:plot_id, plots_for_select, :prompt => 'Select') %>
   </div>
 
   <div class="actions">
