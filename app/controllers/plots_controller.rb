@@ -11,16 +11,16 @@ class PlotsController < ApplicationController
   def show
   end
 
-  # GET /plots/new
+  # GET /farms/:farm_id/plots/new
   def new
     @plot = Plot.new
   end
 
-  # GET /plots/1/edit
+  # GET /farms/:farm_id/plots/:id
   def edit
   end
 
-  # POST /plots
+  # POST /farms/:farm_id/plots
   def create
     @plot = Plot.new(plot_params)
     @plot.farm = @farm # la granja sobre la que trabajamos, no debe cambiar ni ser posible seleccionarla
@@ -32,7 +32,7 @@ class PlotsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /plots/1
+  # PATCH/PUT /farms/:farm_id/plots/1
   def update
     if @plot.update(plot_params)
       redirect_to [@farm, @plot], notice: 'Plot was successfully updated.'
@@ -41,7 +41,7 @@ class PlotsController < ApplicationController
     end
   end
 
-  # DELETE /plots/1
+  # DELETE /farms/:farm_id/plots/1
   def destroy
     @plot.destroy
       redirect_to plots_url, notice: 'Plot was successfully destroyed.'
