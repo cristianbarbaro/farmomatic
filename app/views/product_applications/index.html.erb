@@ -20,9 +20,9 @@
         <td><%= product_application.amount %></td>
         <td><%= product_application.product.name %></td>
         <td><%= product_application.plot.identifier %></td>
-        <td><%= link_to 'Show', product_application %></td>
-        <td><%= link_to 'Edit', edit_product_application_path(product_application) %></td>
-        <td><%= link_to 'Destroy', product_application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', [@farm, @plot, product_application] %></td>
+        <td><%= link_to 'Edit', edit_farm_plot_product_application_path(@farm, @plot, product_application) %></td>
+        <td><%= link_to 'Destroy', [@farm, @plot, product_application], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Product Application', new_product_application_path %>
+<%= link_to 'New Product Application', new_farm_plot_product_application_path %>
