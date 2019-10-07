@@ -43,8 +43,7 @@ class PlotsController < ApplicationController
   # DELETE /farms/:farm_id/plots/1
   def destroy
     @plot.destroy
-      redirect_to farm_plots_path(@farm), notice: 'Plot was successfully destroyed.'
-      head :no_content
+      redirect_to farm_plots_path, notice: 'Plot was successfully destroyed.'
   end
 
   private
