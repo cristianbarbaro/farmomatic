@@ -1,48 +1,50 @@
 class PlantationsController < ApplicationController
+  before_action :set_farm
+  before_action :set_plot
   before_action :set_plantation, only: [:show, :edit, :update, :destroy]
 
-  # GET /plantations
+  # GET /farms/:farm_id/plots/:plot_id/plantations
   def index
-    @plantations = Plantation.all
+    @plantations = @plot.plantations
   end
 
-  # GET /plantations/1
+  # GET /farms/:farm_id/plots/:plot_id/plantations/1
   def show
   end
 
-  # GET /plantations/new
+  # GET /farms/:farm_id/plots/:plot_id/plantations/new
   def new
-    @plantation = Plantation.new
+    @plantation = @plot.plantations.build
   end
 
-  # GET /plantations/1/edit
+  # GET /farms/:farm_id/plots/:plot_id/plantations/:id/edit
   def edit
   end
 
-  # POST /plantations
+  # POST /farms/:farm_id/plots/:plot_id/plantations
   def create
-    @plantation = Plantation.new(plantation_params)
+    @plantation = @plot.plantations.build(plantation_params)
 
     if @plantation.save
-      redirect_to @plantation, notice: 'Plantation was successfully created.'
+      redirect_to farm_plot_plantations_path(@farm, @plot), notice: 'Plantation was successfully created.'
     else
       render :new
     end
   end
 
-  # PATCH/PUT /plantations/1
+  # PATCH/PUT /farms/:farm_id/plots/:plot_id/plantations/:id
   def update
     if @plantation.update(plantation_params)
-      redirect_to @plantation, notice: 'Plantation was successfully updated.'
+      redirect_to farm_plot_plantation_path(@farm, @plot), notice: 'Plantation was successfully updated.'
     else
       render :edit
     end
   end
 
-  # DELETE /plantations/1
+  # DELETE /farms/:farm_id/plots/:plot_id/plantations/1
   def destroy
     @plantation.destroy
-    redirect_to plantations_url, notice: 'Plantation was successfully destroyed.'
+    redirect_to farm_plot_plantations_path, notice: 'Plantation was successfully destroyed.'
   end
 
   private
@@ -51,8 +53,16 @@ class PlantationsController < ApplicationController
       @plantation = Plantation.find(params[:id])
     end
 
+    def set_farm
+      @farm = Farm.find(params[:farm_id])
+    end
+
+    def set_plot
+      @plot = @farm.plots.find(params[:plot_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def plantation_params
-      params.require(:plantation).permit(:comment, :amount, :plot_id, :species_id)
+      params.require(:plantation).permit(:comment, :amount, :species_id)
     end
 end

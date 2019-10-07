@@ -20,9 +20,9 @@
         <td><%= plantation.amount %></td>
         <td><%= plantation.plot.identifier %></td>
         <td><%= plantation.species.name %></td>
-        <td><%= link_to 'Show', plantation %></td>
-        <td><%= link_to 'Edit', edit_plantation_path(plantation) %></td>
-        <td><%= link_to 'Destroy', plantation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', [@farm, @plot, plantation] %></td>
+        <td><%= link_to 'Edit', edit_farm_plot_plantation_path(@farm, @plot, plantation) %></td>
+        <td><%= link_to 'Destroy', [@farm, @plot, plantation], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Plantation', new_plantation_path %>
+<%= link_to 'New Plantation', new_farm_plot_plantation_path %>

@@ -1,6 +1,6 @@
 <h1>Editing Plantation</h1>
 
-<%= render 'form', plantation: @plantation %>
+<%= render 'form', plantation: @plantation, plot: @plot, farm: @farm %>
 
-<%= link_to 'Show', @plantation %> |
-<%= link_to 'Back', plantations_path %>
+<%= link_to 'Show', [@farm, @plot, @plantation] %> |
+<%= link_to 'Back', farm_plot_plantations_path %>
