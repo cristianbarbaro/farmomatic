@@ -16,7 +16,7 @@
 </p>
 
 <p>
-  <strong>Plots:</strong>
+  <strong><%= link_to "Plots:", farm_plots_path(@farm), target: :_blank %></strong>
   <ul>
     <% @farm.plots.each do |plot| %>
       <li><%= link_to "#{plot.identifier}", [@farm, plot], target: :_blank %></li>
