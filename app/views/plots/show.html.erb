@@ -21,7 +21,7 @@
 </p>
 
 <p>
-  <strong>Plantations:</strong>
+  <strong><%= link_to "Plantations:", farm_plot_plantations_path(@farm, @plot), target: :_blank %></strong>
   <ul>
     <% @plot.plantations.each do |plantation| %>
       <li><%= link_to "#{plantation.species.name}", [@farm, @plot, plantation], target: :_blank %></li>
@@ -30,7 +30,7 @@
 </p>
 
 <p>
-  <strong>Problems:</strong>
+  <strong><%= link_to "Problems:", farm_plot_problems_path(@farm, @plot), target: :_blank %></strong>
   <ul>
     <% @plot.problems.each do |problem| %>
       <li><%= link_to "#{problem.type_problem.name}", [@farm, @plot, problem], target: :_blank %></li>
@@ -39,7 +39,7 @@
 </p>
 
 <p>
-  <strong>Applications:</strong>
+  <strong><%= link_to "Applications:", farm_plot_product_applications_path(@farm, @plot), target: :_blank %></strong>
   <ul>
     <% @plot.product_applications.each do |application| %>
       <li><%= link_to "#{application.product.name}", [@farm, @plot, application], target: :_blank %></li>
@@ -48,7 +48,7 @@
 </p>
 
 <p>
-  <strong>Crops:</strong>
+  <strong><%= link_to "Crops:", farm_plot_crops_path(@farm, @plot), target: :_blank %></strong>
   <ul>
     <% @plot.crops.each do |crop| %>
       <li><%= link_to "#{crop.variety.name}", [@farm, @plot, crop], target: :_blank %></li>
