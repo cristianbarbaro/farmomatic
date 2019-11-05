@@ -20,5 +20,41 @@
   <%= @plot.greenhouse %>
 </p>
 
+<p>
+  <strong>Plantations:</strong>
+  <ul>
+    <% @plot.plantations.each do |plantation| %>
+      <li><%= link_to "#{plantation.species.name}", [@farm, @plot, plantation], target: :_blank %></li>
+    <% end %>  
+  </ul>
+</p>
+
+<p>
+  <strong>Problems:</strong>
+  <ul>
+    <% @plot.problems.each do |problem| %>
+      <li><%= link_to "#{problem.type_problem.name}", [@farm, @plot, problem], target: :_blank %></li>
+    <% end %>  
+  </ul>
+</p>
+
+<p>
+  <strong>Applications:</strong>
+  <ul>
+    <% @plot.product_applications.each do |application| %>
+      <li><%= link_to "#{application.product.name}", [@farm, @plot, application], target: :_blank %></li>
+    <% end %>  
+  </ul>
+</p>
+
+<p>
+  <strong>Crops:</strong>
+  <ul>
+    <% @plot.crops.each do |crop| %>
+      <li><%= link_to "#{crop.variety.name}", [@farm, @plot, crop], target: :_blank %></li>
+    <% end %>  
+  </ul>
+</p>
+
 <%= link_to 'Edit', edit_farm_plot_path(@plot) %> |
 <%= link_to 'Back', farm_plots_path %>
