@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :products
   resources :varieties
+  resources :novelties
   resources :type_problems
   resources :species
   resources :farms do

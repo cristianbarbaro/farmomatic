@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @novelty.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @novelty.body %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @novelty.user.email %>
+</p>
+
+<%= link_to 'Edit', edit_novelty_path(@novelty) %> |
+<%= link_to 'Back', novelties_path %>

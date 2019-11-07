@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_23_134840) do
+ActiveRecord::Schema.define(version: 2019_11_07_181338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 2019_09_23_134840) do
     t.string "address"
   end
 
+  create_table "novelties", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_novelties_on_user_id"
+  end
+
   create_table "plantations", force: :cascade do |t|
     t.string "comment"
     t.float "amount"
@@ -73,6 +82,15 @@ ActiveRecord::Schema.define(version: 2019_09_23_134840) do
     t.datetime "updated_at", null: false
     t.index ["plot_id"], name: "index_problems_on_plot_id"
     t.index ["type_problem_id"], name: "index_problems_on_type_problem_id"
+  end
+
+  create_table "producer_novelties", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "novelty_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["novelty_id"], name: "index_producer_novelties_on_novelty_id"
+    t.index ["user_id"], name: "index_producer_novelties_on_user_id"
   end
 
   create_table "product_applications", force: :cascade do |t|
@@ -153,10 +171,13 @@ ActiveRecord::Schema.define(version: 2019_09_23_134840) do
   add_foreign_key "assigments", "users"
   add_foreign_key "crops", "plots"
   add_foreign_key "crops", "varieties"
+  add_foreign_key "novelties", "users"
   add_foreign_key "plantations", "plots"
   add_foreign_key "plantations", "species"
   add_foreign_key "problems", "plots"
   add_foreign_key "problems", "type_problems"
+  add_foreign_key "producer_novelties", "novelties"
+  add_foreign_key "producer_novelties", "users"
   add_foreign_key "product_applications", "plots"
   add_foreign_key "product_applications", "products"
 end
