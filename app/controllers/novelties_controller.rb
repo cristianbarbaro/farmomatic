@@ -3,7 +3,7 @@ class NoveltiesController < ApplicationController
 
   # GET /novelties
   def index
-    @novelties = Novelty.all
+    @novelties = current_user.novelties
   end
 
   # GET /novelties/1
@@ -48,8 +48,15 @@ class NoveltiesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def check_author_novelty(novelty)
+      current_user.eql? novelty.user
+    end
+    
     def set_novelty
       @novelty = Novelty.find(params[:id])
+      if not check_author_novelty @novelty
+        head 403
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
