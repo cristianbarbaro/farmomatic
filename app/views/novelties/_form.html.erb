@@ -20,6 +20,11 @@
       <%= form.label :body %>
       <%= form.text_area :body %>
     </div>
+
+    <div class="select">
+      <%= form.label :producers %>
+      <%= form.collection_select :user_id, User.all, :id, :email, {}, {:multiple => true} %>
+    </div>
   
     <div class="actions">
       <%= form.submit %>

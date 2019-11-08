@@ -25,6 +25,10 @@ class NoveltiesController < ApplicationController
     @novelty.user = current_user
 
     if @novelty.save
+      for user in novelty_params[:novelty_user_id] do
+        p user
+        @novelty.producer_novelties.build({:novelty_id => @novelty.id, :user_id => user})
+      end
       redirect_to @novelty, notice: 'Novelty was successfully created.'
     else
       render :new
@@ -33,7 +37,13 @@ class NoveltiesController < ApplicationController
 
   # PATCH/PUT /novelties/1
   def update
+    p novelty_params
     if @novelty.update(novelty_params)
+      """for user in novelty_params[:novelty_user_id] do
+        p user
+        @novelty.producer_novelties.build({:novelty_id => @novelty.id, :user_id => user})
+      end
+      """
       redirect_to @novelty, notice: 'Novelty was successfully updated.'
     else
       render :edit
@@ -61,6 +71,6 @@ class NoveltiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def novelty_params
-      params.require(:novelty).permit(:title, :body)
+      params.require(:novelty).permit(:title, :body,  user_ids: [])
     end
 end
