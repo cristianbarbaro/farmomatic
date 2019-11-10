@@ -23,7 +23,7 @@
 
     <div class="select">
       <%= form.label :producers %>
-      <%= form.collection_select :user_id, User.all, :id, :email, {}, {:multiple => true} %>
+      <%= form.collection_select :user_ids, User.all, :id, :email, {:include_hidden => false}, {:multiple => true} %>
     </div>
   
     <div class="actions">
