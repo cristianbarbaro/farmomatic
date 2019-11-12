@@ -15,5 +15,14 @@
   <%= @novelty.user.email %>
 </p>
 
+<p>
+  <strong>Producers:</strong>
+  <ul>
+    <% @novelty.producers.each do |producer| %>
+      <li><%= producer.email %></li>
+    <% end %>  
+  </ul>
+</p>
+
 <%= link_to 'Edit', edit_novelty_path(@novelty) %> |
 <%= link_to 'Back', novelties_path %>

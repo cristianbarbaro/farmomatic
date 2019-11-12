@@ -3,7 +3,7 @@ class NoveltiesController < ApplicationController
 
   # GET /novelties
   def index
-    @novelties = current_user.novelties
+    @novelties = current_user.publications
   end
 
   # GET /novelties/1
@@ -62,6 +62,6 @@ class NoveltiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def novelty_params
-      params.require(:novelty).permit(:title, :body, user_ids: [])
+      params.require(:novelty).permit(:title, :body, producer_ids: [])
     end
 end
