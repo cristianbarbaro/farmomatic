@@ -1,0 +1,25 @@
+<h1>NoveltiesProducer#index</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Author</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @novelties.each do |novelty| %>
+      <tr>
+        <td><%= novelty.title %></td>
+        <td><%= novelty.body %></td>
+        <td><%= novelty.user.email %></td>
+        <td><%= link_to 'Show', novelty %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

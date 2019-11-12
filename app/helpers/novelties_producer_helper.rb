@@ -1,0 +1,2 @@
+module NoveltiesProducerHelper
+end

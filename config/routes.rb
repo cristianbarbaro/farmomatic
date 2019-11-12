@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'novelties_producer/index'
   devise_for :users
   resources :products
   resources :varieties
