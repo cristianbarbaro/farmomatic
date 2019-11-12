@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @novelty.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @novelty.body %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @novelty.user.email %>
+</p>
+
+<p>
+  <strong>Producers:</strong>
+  <ul>
+    <% @novelty.producers.each do |producer| %>
+      <li><%= producer.email %></li>
+    <% end %>  
+  </ul>
+</p>
+
+<%= link_to 'Back', novelties_producers_path %>

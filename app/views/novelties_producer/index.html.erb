@@ -18,7 +18,7 @@
         <td><%= novelty.title %></td>
         <td><%= novelty.body %></td>
         <td><%= novelty.user.email %></td>
-        <td><%= link_to 'Show', novelty %></td>
+        <td><%= link_to 'Show', novelties_producer_path(novelty) %></td>
       </tr>
     <% end %>
   </tbody>
