@@ -1,27 +1,32 @@
-<p id="notice"><%= notice %></p>
+<section class="mbr-section content4 cid-qvbjfGj2Ze" >
+  <div class="container">
+    <div class="media-container-row">
+      <div class="title">
+        <h2 class="align-center pb-3 mbr-fonts-style display-5"><%= @novelty.title %></h2>
+        <p class="mbr-section-subtitle align-center mbr-light mbr-fonts-style display-7"><em>Author: <%= @novelty.user.email %></em></p>            
+      </div>
+    </div>
+  </div>
+</section>
 
-<p>
-  <strong>Title:</strong>
-  <%= @novelty.title %>
-</p>
+<section class="mbr-section article content1 cid-qvbjomyZfb" id="content1-7y" data-rv-view="8341">
+  <div class="container">
+    <div class="media-container-row">
+      <div class="mbr-text mbr-fonts-style display-7">
+        <%= @novelty.body %>
+      </div>
+    </div>
+  </div>
+</section>
 
-<p>
-  <strong>Body:</strong>
-  <%= @novelty.body %>
-</p>
+<br>
 
-<p>
-  <strong>Author:</strong>
-  <%= @novelty.user.email %>
-</p>
-
-<p>
-  <strong>Producers:</strong>
-  <ul>
-    <% @novelty.producers.each do |producer| %>
-      <li><%= producer.email %></li>
-    <% end %>  
-  </ul>
-</p>
-
-<%= link_to 'Back', novelties_producers_path %>
+<section class="mbr-section article content1 cid-qvbjomyZfb" id="content1-7y" data-rv-view="8341">
+  <div class="container">
+    <div class="media-container-row">
+      <div class="mbr-text mbr-fonts-style display-7">
+        <%= link_to 'Back', novelties_producers_path, :class => "btn-primary btn" %>
+      </div>
+    </div>
+  </div>
+</section>

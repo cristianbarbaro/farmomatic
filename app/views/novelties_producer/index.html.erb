@@ -1,12 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>NoveltiesProducer#index</h1>
+<h1>novelties</h1>
 
 <table>
   <thead>
     <tr>
       <th>Title</th>
-      <th>Body</th>
       <th>Author</th>
       <th colspan="3"></th>
     </tr>
@@ -16,7 +15,6 @@
     <% @novelties.each do |novelty| %>
       <tr>
         <td><%= novelty.title %></td>
-        <td><%= novelty.body %></td>
         <td><%= novelty.user.email %></td>
         <td><%= link_to 'Show', novelties_producer_path(novelty) %></td>
       </tr>
