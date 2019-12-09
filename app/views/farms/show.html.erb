@@ -23,5 +23,20 @@
   </ul>
 </p>
 
-<%= link_to 'Edit', edit_farm_path(@farm) %> |
+<p>
+  <strong>Users:</strong>
+  <ul>
+    <% User.with_role(:owner, @farm).each do |user| %>
+      <li><%= user.email %>, owner</li>
+    <% end %>
+    <% User.with_role(:viewer, @farm).each do |user| %>
+      <li><%= user.email %>, viewer, <td><%= link_to 'Destroy', farm_destroy_user_path(@farm, user: {role: 'viewer', user_id: user.id}), method: :post %></td></li>
+    <% end %>
+  </ul>
+</p>
+
+<% if user_is_owner? @farm %>
+  <p><%= link_to 'Add user', farm_new_user_path(@farm) %></p>
+  <%= link_to 'Edit', edit_farm_path(@farm) %> |
+<% end %>
 <%= link_to 'Back', farms_path %>

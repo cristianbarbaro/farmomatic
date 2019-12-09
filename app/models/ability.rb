@@ -31,9 +31,12 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
     if user.present?
-      #can :manage, Farm, user_id: user.id
       if user.has_role?(:owner, Farm)
-        can :manage, Farm
+        can :manage, Farm, user_id: user.id
+        #can :manage, Farm
+      end
+      if user.has_role?(:viewer, Farm)
+        can :read, Farm
       end
     end
   end

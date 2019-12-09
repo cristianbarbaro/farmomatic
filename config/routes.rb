@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   end
   get '/farms/:farm_id/new_users', to: "user_farm_roles#new_users", as: "farm_new_user"
   post '/farms/:farm_id/add_users', to: "user_farm_roles#add_users", as: "farm_add_user"
+  post '/farms/:farm_id/destroy_users', to: "user_farm_roles#destroy", as: "farm_destroy_user"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

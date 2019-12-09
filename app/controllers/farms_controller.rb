@@ -1,5 +1,6 @@
 class FarmsController < ApplicationController
   before_action :set_farm, only: [:show, :edit, :update, :destroy]
+  before_action :check_permissions_owner, only: [:edit, :update, :destroy]
 
   # GET /farms
   def index
@@ -56,9 +57,7 @@ class FarmsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
     def set_farm
       @farm = Farm.find(params[:id])
-      if not check_permissions_farm @farm
-        head 403
-      end
+      head 403 unless check_permissions_farm @farm
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
