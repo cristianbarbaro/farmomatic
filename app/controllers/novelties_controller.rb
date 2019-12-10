@@ -1,5 +1,6 @@
 class NoveltiesController < ApplicationController
   before_action :set_novelty, only: [:show, :edit, :update, :destroy]
+  before_action :check_permissions_expert
 
   # GET /novelties
   def index

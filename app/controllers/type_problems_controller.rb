@@ -1,5 +1,6 @@
 class TypeProblemsController < ApplicationController
   before_action :set_type_problem, only: [:show, :edit, :update, :destroy]
+  before_action :check_permissions_expert
 
   # GET /type_problems
   # GET /type_problems.json

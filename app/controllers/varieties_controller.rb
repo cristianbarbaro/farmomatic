@@ -1,5 +1,6 @@
 class VarietiesController < ApplicationController
   before_action :set_variety, only: [:show, :edit, :update, :destroy]
+  before_action :check_permissions_expert
 
   # GET /varieties
   def index
