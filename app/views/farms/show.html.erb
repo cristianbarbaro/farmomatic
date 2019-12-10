@@ -27,10 +27,10 @@
   <strong>Users:</strong>
   <ul>
     <% User.with_role(:owner, @farm).each do |user| %>
-      <li><%= user.email %>, owner</li>
+      <li><%= user.email %>, owner, <%= link_to 'Destroy', farm_destroy_user_path(@farm, user: {role: 'owner', user_id: user.id}), method: :post %></li>
     <% end %>
     <% User.with_role(:viewer, @farm).each do |user| %>
-      <li><%= user.email %>, viewer, <td><%= link_to 'Destroy', farm_destroy_user_path(@farm, user: {role: 'viewer', user_id: user.id}), method: :post %></td></li>
+      <li><%= user.email %>, viewer, <%= link_to 'Destroy', farm_destroy_user_path(@farm, user: {role: 'viewer', user_id: user.id}), method: :post %></li>
     <% end %>
   </ul>
 </p>
