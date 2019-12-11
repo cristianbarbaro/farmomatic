@@ -1,14 +1,13 @@
-
-<h1>Varieties</h1>
-
-<table>
+<h3>Variedades</h3>
+<hr>
+<table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>scientific_name</th>
+      <th>Nombre</th>
+      <th>Nombre científico</th>
       <th>Url</th>
-      <th>Description</th>
-      <th colspan="3"></th>
+      <th>Descripción</th>
+      <th colspan="3">Acciones</th>
     </tr>
   </thead>
 
@@ -19,14 +18,20 @@
         <td><%= variety.scientific_name %></td>
         <td><%= variety.url %></td>
         <td><%= variety.description %></td>
-        <td><%= link_to 'Show', variety %></td>
-        <td><%= link_to 'Edit', edit_variety_path(variety) %></td>
-        <td><%= link_to 'Destroy', variety, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to '', variety, class:'glyphicon glyphicon-eye-open btn btn-xs btn-default', title: 'Ver' %>
+          <%= link_to '', edit_variety_path(variety), class:'glyphicon glyphicon-pencil btn btn-xs btn-default', title: 'Editar' %>
+          <%= link_to '', variety, class:'glyphicon glyphicon-trash btn btn-xs btn-danger', method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar el elemento?' }, title: 'Borrar' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<hr>
 
-<%= link_to 'New Variety', new_variety_path %>
+<div class="pull-right">
+  <div class="btn-right">
+    <%= link_to 'Nuevo', new_variety_path, class: "btn btn-success" %>
+  </div>
+</div>

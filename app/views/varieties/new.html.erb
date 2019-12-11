@@ -1,5 +1,7 @@
-<h1>New Variety</h1>
-
+<h3>Nueva variedad</h3>
+<hr>
 <%= render 'form', variety: @variety %>
 
-<%= link_to 'Back', varieties_path %>
+<div class="pull-right">
+    <%= link_to 'Cancelar', varieties_path, class: "btn btn-danger" %>
+</div>

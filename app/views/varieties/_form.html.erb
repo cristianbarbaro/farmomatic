@@ -1,4 +1,4 @@
-<%= form_with(model: variety, local: true) do |form| %>
+<%= bootstrap_form_with(model: variety, local: true) do |form| %>
   <% if variety.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(variety.errors.count, "error") %> prohibited this variety from being saved:</h2>
@@ -11,27 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
     <%= form.text_field :name %>
-  </div>
 
-  <div class="field">
-    <%= form.label :scientific_name %>
-    <%= form.text_field :scientific_name %>
-  </div>
+  <%= form.text_field :scientific_name %>
 
-  <div class="field">
-    <%= form.label :url %>
-    <%= form.text_field :url %>
-  </div>
+  <%= form.text_field :url %>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
+  <%= form.text_field :description %>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+<hr>
