@@ -1,6 +1,8 @@
-<h1>Editing Type Problem</h1>
-
+<h3>Editar tipo de problemas</h3>
+<hr>
 <%= render 'form', type_problem: @type_problem %>
 
-<%= link_to 'Show', @type_problem %> |
-<%= link_to 'Back', type_problems_path %>
+<div class="pull-right">
+    <%= link_to 'Show', @type_problem, class: "btn btn-success" %>
+    <%= link_to 'Back', type_problems_path, class: "btn btn-default" %>
+</div>

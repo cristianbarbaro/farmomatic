@@ -1,13 +1,13 @@
 
-<h1>Farms</h1>
-
-<table>
+<h3>Granjas</h3>
+<hr>
+<table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Address</th>
-      <th colspan="3"></th>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Dirección</th>
+      <th colspan="3">Acciones</th>
     </tr>
   </thead>
 
@@ -17,16 +17,22 @@
         <td><%= farm.name %></td>
         <td><%= farm.description %></td>
         <td><%= farm.address %></td>
-        <td><%= link_to 'Show', farm %></td>
-        <% if user_is_owner? farm %>
-          <td><%= link_to 'Edit', edit_farm_path(farm) %></td>
-          <td><%= link_to 'Destroy', farm, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
+        <td>
+          <%= link_to '', farm, class:'glyphicon glyphicon-eye-open btn btn-xs btn-default', title: 'Ver' %>
+          <% if user_is_owner? farm %>
+            <%= link_to '', edit_farm_path(farm), class:'glyphicon glyphicon-pencil btn btn-xs btn-default', title: 'Editar' %>
+            <%= link_to '', farm, class:'glyphicon glyphicon-trash btn btn-xs btn-danger', method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar el elemento?' }, title: 'Borrar' %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<hr>
 
-<%= link_to 'New Farm', new_farm_path %>
+<div class="pull-right">
+  <div class="btn-right">
+    <%= link_to 'Nuevo', new_farm_path, class: "btn btn-success" %>
+  </div>
+</div>

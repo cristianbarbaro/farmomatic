@@ -1,5 +1,8 @@
-<h1>New Species</h1>
+<h3>Nueva especie</h3>
+<hr>
 
 <%= render 'form', species: @species %>
 
-<%= link_to 'Back', species_index_path %>
+<div class="pull-right">
+    <%= link_to 'Cancelar', species_index_path, class: "btn btn-danger" %>
+</div>

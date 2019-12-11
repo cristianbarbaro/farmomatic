@@ -1,6 +1,8 @@
-<h1>Editing Farm</h1>
-
+<h3>Editar granja</h3>
+<hr>
 <%= render 'form', farm: @farm %>
 
-<%= link_to 'Show', @farm %> |
-<%= link_to 'Back', farms_path %>
+<div class="pull-right">
+    <%= link_to 'Ver', @farm, :class => "btn-success btn" %>
+    <%= link_to 'Atrás', farms_path, :class => "btn btn-default" %>
+</div>

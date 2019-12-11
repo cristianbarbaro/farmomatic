@@ -1,15 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Type Problems</h1>
-
-<table>
+<h3>Tipos de problemas</h3>
+<hr>
+<table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>scientific_name</th>
+      <th>Nombre</th>
+      <th>Nombre científico</th>
       <th>Url</th>
-      <th>Description</th>
-      <th colspan="3"></th>
+      <th>Descripción</th>
+      <th colspan="3">Acciones</th>
     </tr>
   </thead>
 
@@ -20,14 +18,20 @@
         <td><%= type_problem.scientific_name %></td>
         <td><%= type_problem.url %></td>
         <td><%= type_problem.description %></td>
-        <td><%= link_to 'Show', type_problem %></td>
-        <td><%= link_to 'Edit', edit_type_problem_path(type_problem) %></td>
-        <td><%= link_to 'Destroy', type_problem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to '', type_problem, class:'glyphicon glyphicon-eye-open btn btn-xs btn-default', title: 'Ver' %>
+          <%= link_to '', edit_type_problem_path(type_problem), class:'glyphicon glyphicon-pencil btn btn-xs btn-default', title: 'Editar' %>
+          <%= link_to '', type_problem, class:'glyphicon glyphicon-trash btn btn-xs btn-danger', method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar el elemento?' }, title: 'Borrar' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<hr>
 
-<%= link_to 'New Type Problem', new_type_problem_path %>
+<div class="pull-right">
+  <div class="btn-right">
+    <%= link_to 'Nuevo', new_type_problem_path, class: "btn btn-success" %>
+  </div>
+</div>

@@ -1,6 +1,9 @@
-<h1>Editing Species</h1>
+<h3>Editar especie</h3>
+<hr>
 
 <%= render 'form', species: @species %>
 
-<%= link_to 'Show', @species %> |
-<%= link_to 'Back', species_index_path %>
+<div class="pull-right">
+    <%= link_to 'Ver', @species, class: "btn btn-success" %>
+    <%= link_to 'Atrás', species_index_path, class: "btn btn-default" %>
+</div>

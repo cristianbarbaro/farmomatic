@@ -1,11 +1,11 @@
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nombre:</strong>
   <%= @type_problem.name %>
 </p>
 
 <p>
-  <strong>scientific_name:</strong>
+  <strong>Nombre científico:</strong>
   <%= @type_problem.scientific_name %>
 </p>
 
@@ -15,9 +15,11 @@
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Descripción:</strong>
   <%= @type_problem.description %>
 </p>
 
-<%= link_to 'Edit', edit_type_problem_path(@type_problem) %> |
-<%= link_to 'Back', type_problems_path %>
+<div class="pull-right">
+  <%= link_to 'Editar', edit_type_problem_path(@type_problem), class: "btn btn-success" %>
+  <%= link_to 'Atrás', type_problems_path, class: "btn btn-default" %>
+</div>

@@ -1,5 +1,8 @@
-<h1>New Product</h1>
+<h3>Nuevo producto</h3>
+<hr>
 
 <%= render 'form', product: @product %>
 
-<%= link_to 'Back', products_path %>
+<div class="pull-right">
+    <%= link_to 'Cancelar', products_path, class: "btn btn-danger" %>
+</div>

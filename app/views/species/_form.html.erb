@@ -1,4 +1,4 @@
-<%= form_with(model: species, local: true) do |form| %>
+<%= bootstrap_form_with(model: species, local: true) do |form| %>
   <% if species.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(species.errors.count, "error") %> prohibited this species from being saved:</h2>
@@ -11,12 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+  <%= form.text_field :name %>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+<hr>
