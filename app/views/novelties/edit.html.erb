@@ -1,8 +1,8 @@
-<h1>Editing Novelty</h1>
-
+<h3>Editar novedad</h3>
+<hr>
 <%= render 'form', novelty: @novelty %>
 
-<div>
-    <%= link_to 'Show', @novelty, :class => 'btn-primary btn' %>
-    <%= link_to 'Back', novelties_path, :class => " btn" %>
+<div class="pull-right">
+    <%= link_to 'Ver', @novelty, :class => 'btn-success btn' %>
+    <%= link_to 'Atrás', novelties_path, :class => " btn btn-default" %>
 </div>

@@ -1,21 +1,21 @@
 
 <p>
-  <strong>Title:</strong>
+  <strong>Título:</strong>
   <%= @novelty.title %>
 </p>
 
 <p>
-  <strong>Body:</strong>
+  <strong>Texto:</strong>
   <%= @novelty.body %>
 </p>
 
 <p>
-  <strong>Author:</strong>
+  <strong>Autor:</strong>
   <%= @novelty.user.email %>
 </p>
 
 <p>
-  <strong>Producers:</strong>
+  <strong>Productores:</strong>
   <ul>
     <% @novelty.producers.each do |producer| %>
       <li><%= producer.email %></li>
@@ -23,5 +23,7 @@
   </ul>
 </p>
 
-<%= link_to 'Edit', edit_novelty_path(@novelty) %> |
-<%= link_to 'Back', novelties_path %>
+<div class="pull-right">
+  <%= link_to 'Editar', edit_novelty_path(@novelty), class: "btn btn-success" %>
+  <%= link_to 'Atrás', novelties_path, class: "btn btn-default" %>
+</div>

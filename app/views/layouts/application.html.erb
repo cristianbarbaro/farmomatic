@@ -9,74 +9,79 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Inicio</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Inicio</a>
+    </div>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
         <% if current_user %>
-          <li class="nav-item">
-            <%= link_to "Farms", farms_path, :class => "nav-link" %>
+          <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+          <li>
+            <%= link_to "Granjas", farms_path, :class => "nav-link" %>
           </li>
           <% if current_user.has_role? :producer %>
             <li class="nav-item">
-              <%= link_to "Novelties producer", novelties_producers_path, :class => "nav-link" %>
+              <%= link_to "Novedades", novelties_producers_path, :class => "nav-link" %>
             </li>
           <% end %>
           <% if current_user.has_role? :expert %>
-            <li class="nav-item">
-              <%= link_to "Novelties editor", novelties_path, :class => "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Species", species_index_path, :class => "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Types problems", type_problems_path, :class => "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Products", products_path, :class => "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Varieties", varieties_path, :class => "nav-link" %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menú experto<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="nav-item">
+                  <%= link_to "Novedades", novelties_path, :class => "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "Especies", species_index_path, :class => "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "Tipos problemas", type_problems_path, :class => "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "Productos", products_path, :class => "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "Variedades", varieties_path, :class => "nav-link" %>
+                </li>
+              </ul>
             </li>
           <% end %>
         <% end %>
-        <li class="nav-item dropdown">
-          <% if current_user %>
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user.email %></a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Editar perfil</a>
-              <a><%= link_to 'Logout', destroy_user_session_path, :class => "dropdown-item" %></a>
-            </div>
-          <% else %>
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sesión</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a><%= link_to 'Login', new_user_session_path, :class => "dropdown-item" %></a>
-              <a><%= link_to 'Sign up', new_user_registration_path, :class => "dropdown-item"  %></a>
-            </div>
-          <% end %>
-        </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
       </form>
-    </div>
-  </nav>
-
-  <br>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %><span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Editar perfil</a></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to 'Cerrar sesión', destroy_user_session_path, :class => "dropdown-item" %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><a href="#">Iniciar sesión</a></li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 
   <body>
     <div class="container col-md-8 col-md-offset-2">
@@ -91,4 +96,9 @@
       <%= yield %>
     </div>
   </body>
+
+  <script>
+    $('.dropdown-toggle').dropdown()
+  </script>
+
 </html>

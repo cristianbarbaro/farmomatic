@@ -1,20 +1,20 @@
-<h1>novelties</h1>
+<h3>Novedades</h3>
 
-<table>
+<br>
+
+<table class="table">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th colspan="3"></th>
+      <th>Título</th>
+      <th>Autor</th>
     </tr>
   </thead>
 
   <tbody>
     <% @novelties.each do |novelty| %>
       <tr>
-        <td><%= novelty.title %></td>
+        <td><%= link_to novelty.title, novelties_producer_path(novelty) %></td>
         <td><%= novelty.user.email %></td>
-        <td><%= link_to 'Show', novelties_producer_path(novelty) %></td>
       </tr>
     <% end %>
   </tbody>
