@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <%= form.text_field :title %>
-  <%= form.text_area :body %>
+  <%= form.text_field :title, label: "Título" %>
+  <%= form.text_area :body, label: "Texto" %>
   <%= form.collection_select :producer_ids, User.all, :id, :email, {:include_hidden => false}, {:multiple => true} %>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Enviar", class: "btn btn-success" %>
   </div>
 <% end %>
 

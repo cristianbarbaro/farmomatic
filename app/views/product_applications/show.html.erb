@@ -1,23 +1,25 @@
 
 <p>
-  <strong>Comment:</strong>
+  <strong>Comentario:</strong>
   <%= @product_application.comment %>
 </p>
 
 <p>
-  <strong>Amount:</strong>
+  <strong>Cantidad:</strong>
   <%= @product_application.amount %>
 </p>
 
 <p>
-  <strong>Product:</strong>
+  <strong>Producto:</strong>
   <%= @product_application.product.name %>
 </p>
 
 <p>
-  <strong>Plot:</strong>
+  <strong>Lote:</strong>
   <%= @product_application.plot.identifier %>
 </p>
 
-<%= link_to 'Edit', edit_farm_plot_product_application_path(@farm, @plot, @product_application) %> |
-<%= link_to 'Back', farm_plot_product_applications_path %>
+<div class="pull-right">
+  <%= link_to 'Editar', edit_farm_plot_product_application_path(@farm, @plot, @product_application), class: "btn btn-success" %>
+  <%= link_to 'Atrás', farm_plot_product_applications_path, class: "btn btn-default" %>
+</div>

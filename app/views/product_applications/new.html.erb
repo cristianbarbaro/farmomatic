@@ -1,5 +1,7 @@
-<h1>New Product Application</h1>
-
+<h3>Nueva aplicación de productos</h3>
+<hr>
 <%= render 'form', product_application: @product_application, plot: @plot, farm: @farm %>
 
-<%= link_to 'Back', farm_plot_product_applications_path %>
+<div class="pull-right">
+    <%= link_to 'Cancelar', farm_plot_product_applications_path, class: "btn btn-danger" %>
+</div>

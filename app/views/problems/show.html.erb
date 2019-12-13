@@ -1,18 +1,20 @@
 
 <p>
-  <strong>Comment:</strong>
+  <strong>Comentario:</strong>
   <%= @problem.comment %>
 </p>
 
 <p>
-  <strong>Type problem:</strong>
+  <strong>Tipo de problema:</strong>
   <%= @problem.type_problem.name %>
 </p>
 
 <p>
-  <strong>Plot:</strong>
+  <strong>Lote:</strong>
   <%= @problem.plot.identifier %>
 </p>
 
-<%= link_to 'Edit', edit_farm_plot_problem_path(@farm, @plot, @problem) %> |
-<%= link_to 'Back', farm_plot_problems_path %>
+<div class="pull-right">
+  <%= link_to 'Editar', edit_farm_plot_problem_path(@farm, @plot, @problem), class: "btn btn-success" %>
+  <%= link_to 'Atrás', farm_plot_problems_path, class: "btn btn-default" %>
+</div>

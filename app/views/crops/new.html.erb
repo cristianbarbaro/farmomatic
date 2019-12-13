@@ -1,5 +1,7 @@
-<h1>New Crop</h1>
-
+<h3>Nueva cosecha</h3>
+<hr>
 <%= render 'form', crop: @crop, plot: @plot, farm: @farm %>
 
-<%= link_to 'Back', farm_plot_crops_path %>
+<div class="pull-right">
+    <%= link_to 'Cancelar', farm_plot_crops_path, class: "btn btn-danger" %>
+</div>

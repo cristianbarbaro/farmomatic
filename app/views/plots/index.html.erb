@@ -1,14 +1,13 @@
-
-<h1>Plots</h1>
-
-<table>
+<h3>Lotes</h3>
+<hr>
+<table class="table">
   <thead>
     <tr>
-      <th>Identifier</th>
-      <th>Description</th>
-      <th>Surface</th>
-      <th>Greenhouse</th>
-      <th colspan="3"></th>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Superficie</th>
+      <th>Invernadero</th>
+      <th colspan="3">Acciones</th>
     </tr>
   </thead>
 
@@ -19,14 +18,20 @@
         <td><%= plot.description %></td>
         <td><%= plot.surface %></td>
         <td><%= plot.greenhouse %></td>
-        <td><%= link_to 'Show plot', [@farm, plot] %></td>
-        <td><%= link_to 'Edit', edit_farm_plot_path(@farm, plot) %></td>
-        <td><%= link_to 'Destroy', [@farm, plot], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to '', [@farm, plot], class:'glyphicon glyphicon-eye-open btn btn-xs btn-default', title: 'Ver' %>
+          <%= link_to '', edit_farm_plot_path(@farm, plot), class:'glyphicon glyphicon-pencil btn btn-xs btn-default', title: 'Editar' %>
+          <%= link_to '', [@farm, plot], class:'glyphicon glyphicon-trash btn btn-xs btn-danger', method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar el elemento?' }, title: 'Borrar' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<hr>
 
-<%= link_to 'New Plot', new_farm_plot_path(@farm) %>
+<div class="pull-right">
+  <div class="btn-right">
+    <%= link_to 'Nuevo', new_farm_plot_path(@farm), class: "btn btn-success" %>
+  </div>
+</div>

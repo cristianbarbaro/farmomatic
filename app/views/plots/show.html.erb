@@ -1,26 +1,26 @@
 
 <p>
-  <strong>Identifier:</strong>
+  <strong>Nombre:</strong>
   <%= @plot.identifier %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Descripción:</strong>
   <%= @plot.description %>
 </p>
 
 <p>
-  <strong>Surface:</strong>
+  <strong>Superficie:</strong>
   <%= @plot.surface %>
 </p>
 
 <p>
-  <strong>Greenhouse:</strong>
+  <strong>Invernadero:</strong>
   <%= @plot.greenhouse %>
 </p>
 
 <p>
-  <strong><%= link_to "Plantations:", farm_plot_plantations_path(@farm, @plot), target: :_blank %></strong>
+  <strong><%= link_to "Plantaciones:", farm_plot_plantations_path(@farm, @plot), target: :_blank %></strong>
   <ul>
     <% @plot.plantations.each do |plantation| %>
       <li><%= link_to "#{plantation.species.name}", [@farm, @plot, plantation], target: :_blank %></li>
@@ -29,7 +29,7 @@
 </p>
 
 <p>
-  <strong><%= link_to "Problems:", farm_plot_problems_path(@farm, @plot), target: :_blank %></strong>
+  <strong><%= link_to "Problemas:", farm_plot_problems_path(@farm, @plot), target: :_blank %></strong>
   <ul>
     <% @plot.problems.each do |problem| %>
       <li><%= link_to "#{problem.type_problem.name}", [@farm, @plot, problem], target: :_blank %></li>
@@ -38,7 +38,7 @@
 </p>
 
 <p>
-  <strong><%= link_to "Applications:", farm_plot_product_applications_path(@farm, @plot), target: :_blank %></strong>
+  <strong><%= link_to "Aplicaciones:", farm_plot_product_applications_path(@farm, @plot), target: :_blank %></strong>
   <ul>
     <% @plot.product_applications.each do |application| %>
       <li><%= link_to "#{application.product.name}", [@farm, @plot, application], target: :_blank %></li>
@@ -47,7 +47,7 @@
 </p>
 
 <p>
-  <strong><%= link_to "Crops:", farm_plot_crops_path(@farm, @plot), target: :_blank %></strong>
+  <strong><%= link_to "Cosechas:", farm_plot_crops_path(@farm, @plot), target: :_blank %></strong>
   <ul>
     <% @plot.crops.each do |crop| %>
       <li><%= link_to "#{crop.variety.name}", [@farm, @plot, crop], target: :_blank %></li>
@@ -55,5 +55,7 @@
   </ul>
 </p>
 
-<%= link_to 'Edit', edit_farm_plot_path(@farm, @plot) %> |
-<%= link_to 'Back', farm_plots_path %>
+<div class="pull-right">
+  <%= link_to 'Editar', edit_farm_plot_path(@farm, @plot), class: "btn btn-success" %>
+  <%= link_to 'Atrás', farm_plots_path, class: "btn btn-default" %>
+</div>

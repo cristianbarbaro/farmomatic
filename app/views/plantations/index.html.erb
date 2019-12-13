@@ -1,14 +1,14 @@
 
-<h1>Plantations</h1>
-
-<table>
+<h3>Plantaciones</h3>
+<hr>
+<table class="table">
   <thead>
     <tr>
-      <th>Comment</th>
-      <th>Amount</th>
-      <th>Plot</th>
-      <th>Species</th>
-      <th colspan="3"></th>
+      <th>Comentario</th>
+      <th>Cantidad</th>
+      <th>Lote</th>
+      <th>Especies</th>
+      <th colspan="3">Acciones</th>
     </tr>
   </thead>
 
@@ -19,14 +19,20 @@
         <td><%= plantation.amount %></td>
         <td><%= plantation.plot.identifier %></td>
         <td><%= plantation.species.name %></td>
-        <td><%= link_to 'Show', [@farm, @plot, plantation] %></td>
-        <td><%= link_to 'Edit', edit_farm_plot_plantation_path(@farm, @plot, plantation) %></td>
-        <td><%= link_to 'Destroy', [@farm, @plot, plantation], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to '', [@farm, @plot, plantation], class:'glyphicon glyphicon-eye-open btn btn-xs btn-default', title: 'Ver' %>
+          <%= link_to '', edit_farm_plot_plantation_path(@farm, @plot, plantation), class:'glyphicon glyphicon-pencil btn btn-xs btn-default', title: 'Editar' %>
+          <%= link_to '', [@farm, @plot, plantation], class:'glyphicon glyphicon-trash btn btn-xs btn-danger', method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar el elemento?' }, title: 'Borrar' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<hr>
 
-<%= link_to 'New Plantation', new_farm_plot_plantation_path %>
+<div class="pull-right">
+  <div class="btn-right">
+    <%= link_to 'Nuevo', new_farm_plot_plantation_path, class: "btn btn-success" %>
+  </div>
+</div>

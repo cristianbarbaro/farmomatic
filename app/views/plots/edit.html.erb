@@ -1,6 +1,9 @@
-<h1>Editing Plot</h1>
+<h3>Editar lote</h3>
+<hr>
 
 <%= render 'form', plot: @plot, farm: @farm %>
 
-<%= link_to 'Show', [@farm, @plot] %> |
-<%= link_to 'Back', farm_plots_path %>
+<div class="pull-right">
+    <%= link_to 'Ver', [@farm, @plot], class: "btn btn-primary" %>
+    <%= link_to 'Atrás', farm_plots_path, class: "btn btn-default" %>
+</div>

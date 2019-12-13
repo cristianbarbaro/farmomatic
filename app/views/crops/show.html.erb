@@ -1,23 +1,25 @@
 
 <p>
-  <strong>Comment:</strong>
+  <strong>Comentario:</strong>
   <%= @crop.comment %>
 </p>
 
 <p>
-  <strong>Amount:</strong>
+  <strong>Cantidad:</strong>
   <%= @crop.amount %>
 </p>
 
 <p>
-  <strong>Plot:</strong>
+  <strong>Lote:</strong>
   <%= @crop.plot.identifier %>
 </p>
 
 <p>
-  <strong>Variety:</strong>
+  <strong>Variedad:</strong>
   <%= @crop.variety.name %>
 </p>
 
-<%= link_to 'Edit', edit_farm_plot_crop_path(@farm, @plot, @crop) %> |
-<%= link_to 'Back', farm_plot_crops_path %>
+<div class="pull-right">
+  <%= link_to 'Editar', edit_farm_plot_crop_path(@farm, @plot, @crop), class: "btn btn-success" %>
+  <%= link_to 'Atrás', farm_plot_crops_path, class: "btn btn-default" %>
+</div>

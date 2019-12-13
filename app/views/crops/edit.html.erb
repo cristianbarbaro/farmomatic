@@ -1,6 +1,8 @@
-<h1>Editing Crop</h1>
-
+<h3>Editar cosecha</h3>
+<hr>
 <%= render 'form', crop: @crop, plot: @plot, farm: @farm %>
 
-<%= link_to 'Show', [@farm, @plot, @crop] %> |
-<%= link_to 'Back', farm_plot_crops_path %>
+<div class="pull-right">
+    <%= link_to 'Ver', [@farm, @plot, @crop], class: "btn btn-primary" %>
+    <%= link_to 'Atrás', farm_plot_crops_path, class: "btn btn-default" %>
+</div>

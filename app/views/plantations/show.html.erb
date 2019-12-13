@@ -1,23 +1,25 @@
 
 <p>
-  <strong>Comment:</strong>
+  <strong>Comentario:</strong>
   <%= @plantation.comment %>
 </p>
 
 <p>
-  <strong>Amount:</strong>
+  <strong>Cantidad:</strong>
   <%= @plantation.amount %>
 </p>
 
 <p>
-  <strong>Plot:</strong>
+  <strong>Lote:</strong>
   <%= @plantation.plot.identifier %>
 </p>
 
 <p>
-  <strong>Species:</strong>
+  <strong>Especie:</strong>
   <%= @plantation.species.name %>
 </p>
 
-<%= link_to 'Edit', edit_farm_plot_plantation_path(@plantation) %> |
-<%= link_to 'Back', farm_plot_plantations_path %>
+<div class="pull-right">
+  <%= link_to 'Editar', edit_farm_plot_plantation_path(@plantation), class: "btn btn-success" %>
+  <%= link_to 'Atrás', farm_plot_plantations_path, class: "btn btn-default" %>
+</div>
