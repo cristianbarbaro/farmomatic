@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_07_181338) do
+ActiveRecord::Schema.define(version: 2020_01_21_233308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,7 +49,13 @@ ActiveRecord::Schema.define(version: 2019_11_07_181338) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "product_id"
+    t.bigint "variety_id"
+    t.bigint "type_problem_id"
+    t.index ["product_id"], name: "index_novelties_on_product_id"
+    t.index ["type_problem_id"], name: "index_novelties_on_type_problem_id"
     t.index ["user_id"], name: "index_novelties_on_user_id"
+    t.index ["variety_id"], name: "index_novelties_on_variety_id"
   end
 
   create_table "plantations", force: :cascade do |t|
@@ -171,7 +177,10 @@ ActiveRecord::Schema.define(version: 2019_11_07_181338) do
   add_foreign_key "assigments", "users"
   add_foreign_key "crops", "plots"
   add_foreign_key "crops", "varieties"
+  add_foreign_key "novelties", "products"
+  add_foreign_key "novelties", "type_problems"
   add_foreign_key "novelties", "users"
+  add_foreign_key "novelties", "varieties"
   add_foreign_key "plantations", "plots"
   add_foreign_key "plantations", "species"
   add_foreign_key "problems", "plots"
