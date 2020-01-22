@@ -1,6 +1,7 @@
 class PlotsController < ApplicationController
   before_action :set_farm
   before_action :set_plot, only: [:show, :edit, :update, :destroy]
+  before_action :check_permissions_owner, only: [:new, :edit, :update, :destroy]
 
   # GET /farms/:farm_id/plots
   def index

@@ -27,10 +27,17 @@
   <strong>Usuarios asociados:</strong>
   <ul>
     <% User.with_role(:owner, @farm).each do |user| %>
-      <li><%= user.email %>, owner, <%= link_to 'Remover', farm_destroy_user_path(@farm, user: {role: 'owner', user_id: user.id}), method: :post %></li>
+      <li><%= user.email %>, owner, 
+      <% if user_is_owner? @farm %>
+        <%= link_to 'Remover', farm_destroy_user_path(@farm, user: {role: 'owner', user_id: user.id}), method: :post %>
+      <% end %>  
+      </li>
     <% end %>
     <% User.with_role(:viewer, @farm).each do |user| %>
-      <li><%= user.email %>, viewer, <%= link_to 'Remover', farm_destroy_user_path(@farm, user: {role: 'viewer', user_id: user.id}), method: :post %></li>
+      <li><%= user.email %>, viewer, 
+      <% if user_is_owner? @farm %>
+        <%= link_to 'Remover', farm_destroy_user_path(@farm, user: {role: 'viewer', user_id: user.id}), method: :post %></li>
+      <% end %>  
     <% end %>
   </ul>
 </p>
