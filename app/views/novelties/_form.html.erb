@@ -13,7 +13,12 @@
 
   <%= form.text_field :title, label: "Título" %>
   <%= form.text_area :body, label: "Texto" %>
-  <%= form.collection_select :producer_ids, User.all, :id, :email, {:include_hidden => false}, {:multiple => true} %>
+  
+  <%= form.select(:product_id, products_for_select, :prompt => 'Seleccionar', :include_blank => true, label: "Producto") %>
+
+  <%= form.select(:variety_id, varieties_for_select, :prompt => 'Seleccionar', :include_blank => true, label: "Variedad") %>
+
+  <%= form.select(:type_problem_id, types_problems_for_select, :prompt => 'Seleccionar', :include_blank => true, label: "Tipo de problema") %>
 
   <div class="actions">
     <%= form.submit "Enviar", class: "btn btn-success" %>

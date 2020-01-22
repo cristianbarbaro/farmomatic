@@ -14,14 +14,26 @@
   <%= @novelty.user.email %>
 </p>
 
-<p>
-  <strong>Productores:</strong>
-  <ul>
-    <% @novelty.producers.each do |producer| %>
-      <li><%= producer.email %></li>
-    <% end %>  
-  </ul>
-</p>
+<% if @novelty.product %>
+  <p>
+    <strong>Productos:</strong>
+    <%= @novelty.product.name %>
+  </p>
+<% end %>
+
+<% if @novelty.variety %>
+  <p>
+    <strong>Variedad:</strong>
+    <%= @novelty.variety.name %>
+  </p>
+<% end %>
+
+<% if @novelty.type_problem %>
+  <p>
+    <strong>Problema:</strong>
+    <%= @novelty.type_problem.name %>
+  </p>
+<% end %>
 
 <div class="pull-right">
   <%= link_to 'Editar', edit_novelty_path(@novelty), class: "btn btn-success" %>

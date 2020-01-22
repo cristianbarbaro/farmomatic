@@ -63,6 +63,6 @@ class NoveltiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def novelty_params
-      params.require(:novelty).permit(:title, :body, producer_ids: [])
+      params.require(:novelty).permit(:title, :body, :product_id, :variety_id, :type_problem_id)
     end
 end
