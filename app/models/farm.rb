@@ -1,8 +1,8 @@
 class Farm < ApplicationRecord
     resourcify
-    has_many :plots
+    has_many :plots, :dependent => :restrict_with_error # raises ActiveRecord::DeleteRestrictionError
     has_many :assigments
-    has_many :users, :through => :assigments
+    has_many :users, :through => :assigments, :dependent => :restrict_with_error # raises ActiveRecord::DeleteRestrictionError
 
     validates :name, :description, presence: true
 end
