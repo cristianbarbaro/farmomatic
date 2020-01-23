@@ -3,7 +3,6 @@ require 'test_helper'
 class FarmsControllerTest < ActionDispatch::IntegrationTest
   # owner_user is owner 
   setup do
-    sign_in users(:owner_user)
     @farm_owner_user = farms(:farm_owner_user)
   end
 

@@ -5,3 +5,6 @@ species_one:
 
 species_two:
   name: NameSpeciesTwo
+
+species_three:
+  name: NameSpeciesThree # Sin asociación.

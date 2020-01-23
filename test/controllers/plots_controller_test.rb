@@ -2,7 +2,6 @@ require 'test_helper'
 
 class PlotsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    sign_in users(:owner_user)
     @plot_one = plots(:plot_one)
     @plot_three = plots(:plot_three)
   end
@@ -40,13 +39,13 @@ class PlotsControllerTest < ActionDispatch::IntegrationTest
   end
 
   
-  #test "should destroy plot without association" do
-  #  assert_difference('Plot.count', -1) do
-  #    delete farm_plot_url(2, @plot_three)
-  #  end
-  #
-  #  assert_redirected_to farm_plots_url(farm_id: 2)
-  #end
+  test "should destroy plot without association" do
+    assert_difference('Plot.count', -1) do
+      delete farm_plot_url(2, @plot_three)
+    end
+  
+    assert_redirected_to farm_plots_url(farm_id: 2)
+  end
 
   test "should not destroy plot with plantation" do
     assert_raises(ActiveRecord::InvalidForeignKey) do
