@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  User: one
-  Farm: one
+assigment_producer:
+  user: owner_user
+  farm: farm_owner_user
 
-two:
-  User: two
-  Farm: two
+assigment_expert:
+  user: expert_user
+  farm: farm_expert_user
+
+assigment_viewer:
+  user: viewer_user
+  farm: farm_owner_user

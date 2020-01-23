@@ -4,8 +4,24 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+owner_role_one:
+    id: 1
+    name: owner
+    resource_type: Farm
+    resource_id: 1 # farm_owner_user
+
+owner_role_two:
+    id: 4
+    name: owner
+    resource_type: Farm
+    resource_id: 2 # farm_expert_user
+
+expert_role:
+    id: 2
+    name: expert
+
+viewer_role:
+    id: 3
+    name: viewer
+    resource_type: Farm
+    resource_id: 1 # farm_owner_user

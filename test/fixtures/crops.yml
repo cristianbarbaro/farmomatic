@@ -1,13 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  comment: MyString
+crop_one:
+  comment: CommentCropOne
   amount: 1.5
-  plot: one
-  variety: one
+  plot: plot_one
+  variety: variety_one
 
 two:
-  comment: MyString
-  amount: 1.5
-  plot: two
-  variety: two
+  plot: plot_two
+  variety: variety_two

@@ -1,11 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  comment: MyString
-  type_problem: one
-  plot: one
+problem_one:
+  comment: CommentProblemOne
+  type_problem: type_problem_one
+  plot: plot_one
 
-two:
-  comment: MyString
-  type_problem: two
-  plot: two
+problem_two:
+  type_problem: type_problem_two
+  plot: plot_two

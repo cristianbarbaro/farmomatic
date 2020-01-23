@@ -1,9 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  description: MyText
+farm_owner_user: # Owner: owner_user
+  id: 1
+  name: FarmOwnerUser
+  description: DescriptionFarmOwnerUser
+  address: AddressFarmOwnerUSer
 
-two:
-  name: MyString
-  description: MyText
+farm_expert_user: # Owner: expert_user
+  id: 2
+  name: FarmExpertUser
+  description: DescriptionFarmExpertUser

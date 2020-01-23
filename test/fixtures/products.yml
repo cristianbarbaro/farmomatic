@@ -1,11 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  composition: MyString
-  description: MyString
+product_one:
+  name: NameProductOne
+  composition: CompositionProductOne
+  description: DescriptionProductOne
 
-two:
-  name: MyString
-  composition: MyString
-  description: MyString
+product_two:
+  name: NameProductTwo
+  composition: CompositionProductTwo

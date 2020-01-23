@@ -1,11 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  body: MyText
-  user: one
+novelty_one:
+  title: TitleNoveltyOne
+  body: BodyTextNoveltyOne
+  user: expert
+  product: product_one
 
-two:
-  title: MyString
-  body: MyText
-  user: two
+novelty_two:
+  title: TitleNoveltyTwo
+  body: BodyTextNoveltyTwo
+  user: expert
+  variety: variety_one
+
+novelty_three:
+  title: TitleNoveltyTwo
+  body: BodyTextNoveltyTwo
+  user: expert
+  type_problem: type_problem_two

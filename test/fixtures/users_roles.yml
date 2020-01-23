@@ -1,0 +1,21 @@
+# Requiere el uso de los valores de id porque esto no es parte nativa del framework Rails.
+
+user_role_one:
+    user_id: 1 # onwer_user
+    role_id: 1 # owner_role
+
+user_role_two:
+    user_id: 2 # expert_user
+    role_id: 2 # expert_role
+
+user_role_three:
+    user_id: 3 # viewer_user
+    role_id: 3 # viewer_role
+
+user_role_four:
+    user_id: 2 # expert_user
+    role_id: 3 # viewer_role
+
+user_role_five:
+    user_id: 2 # expert_user
+    role_id: 1 # owner_role

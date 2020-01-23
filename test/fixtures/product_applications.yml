@@ -1,13 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  comment: MyString
+product_application_one:
+  comment: CommentProductApplicationOne
   amount: 1.5
-  product: one
-  plot: one
+  product: product_one
+  plot: plot_one
 
-two:
-  comment: MyString
+product_application_two:
   amount: 1.5
-  product: two
-  plot: two
+  product: product_two
+  plot: plot_two
