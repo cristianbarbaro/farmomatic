@@ -90,15 +90,6 @@ ActiveRecord::Schema.define(version: 2020_01_21_233308) do
     t.index ["type_problem_id"], name: "index_problems_on_type_problem_id"
   end
 
-  create_table "producer_novelties", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "novelty_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["novelty_id"], name: "index_producer_novelties_on_novelty_id"
-    t.index ["user_id"], name: "index_producer_novelties_on_user_id"
-  end
-
   create_table "product_applications", force: :cascade do |t|
     t.string "comment"
     t.float "amount"
@@ -185,8 +176,6 @@ ActiveRecord::Schema.define(version: 2020_01_21_233308) do
   add_foreign_key "plantations", "species"
   add_foreign_key "problems", "plots"
   add_foreign_key "problems", "type_problems"
-  add_foreign_key "producer_novelties", "novelties"
-  add_foreign_key "producer_novelties", "users"
   add_foreign_key "product_applications", "plots"
   add_foreign_key "product_applications", "products"
 end
