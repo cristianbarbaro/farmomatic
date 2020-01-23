@@ -5,11 +5,19 @@ plot_one:
   description: DescriptionPlotOne
   surface: SurfacePlotOne
   greenhouse: false
-  farm: farm_one
+  farm_id: 1 #farm_one
 
 plot_two:
   identifier: IdentifierPlotTwo
   description: DescriptionPlotTwo
   surface: SurfacePlotTwo
   greenhouse: true
-  farm: farm_two
+  farm_id: 2  # farm_two
+
+plot_three:
+  identifier: IdentifierPlotThree
+  description: DescriptionPlotThree
+  surface: SurfacePlotThree
+  greenhouse: true
+  farm_id: 2  # farm_two
+  
