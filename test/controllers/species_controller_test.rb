@@ -95,10 +95,10 @@ class SpeciesControllerTest < ActionDispatch::IntegrationTest
 
   test "should not destroy species if user is not expert" do
     sign_in users(:owner_user)
+    @species_three = species(:species_three)
     assert_difference('Species.count', 0) do
-      post species_index_url, params: { species: { name: @species_one.name } }
+      delete species_url(@species_three)
     end
-
     assert_redirected_to root_url
   end
 

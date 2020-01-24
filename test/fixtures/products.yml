@@ -8,3 +8,7 @@ product_one:
 product_two:
   name: NameProductTwo
   composition: CompositionProductTwo
+
+product_three:
+  name: NameProductThree
+  composition: CompositionProductThree
