@@ -40,7 +40,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should not destroy product with association" do
-    assert_raise(ActiveRecord::InvalidForeignKey) do
+    assert_difference('Product.count',0) do
       delete product_url(@product_one)
     end
   end

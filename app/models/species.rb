@@ -1,5 +1,5 @@
 class Species < ApplicationRecord
-    has_many :plantations
+    has_many :plantations, :dependent => :restrict_with_error
 
     has_many :plots, through: :plantations
 

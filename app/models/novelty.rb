@@ -1,6 +1,6 @@
 class Novelty < ApplicationRecord
   belongs_to :user
-  has_many :producer_novelties
+  has_many :producer_novelties, :dependent => :restrict_with_error
   #has_many :producers, :through => :producer_novelties, :source => :user
   accepts_nested_attributes_for :producer_novelties
 

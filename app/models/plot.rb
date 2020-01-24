@@ -1,9 +1,9 @@
 class Plot < ApplicationRecord
     belongs_to :farm
-    has_many :plantations
-    has_many :problems
-    has_many :product_applications
-    has_many :crops
+    has_many :plantations, :dependent => :restrict_with_error
+    has_many :problems, :dependent => :restrict_with_error
+    has_many :product_applications, :dependent => :restrict_with_error
+    has_many :crops, :dependent => :restrict_with_error
 
     has_many :species, through: :plantations
     

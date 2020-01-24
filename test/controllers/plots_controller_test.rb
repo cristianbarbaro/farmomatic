@@ -48,7 +48,7 @@ class PlotsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should not destroy plot with plantation" do
-    assert_raises(ActiveRecord::InvalidForeignKey) do
+    assert_difference('Plot.count',0) do
       delete farm_plot_url(1, @plot_one)
     end
   end

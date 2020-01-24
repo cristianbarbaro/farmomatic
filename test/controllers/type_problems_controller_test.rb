@@ -40,7 +40,7 @@ class TypeProblemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should not destroy type_problem with association" do
-    assert_raise(ActiveRecord::InvalidForeignKey) do
+    assert_difference("TypeProblem.count", 0) do
       delete type_problem_url(@type_problem_one)
     end
 

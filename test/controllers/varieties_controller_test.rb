@@ -40,10 +40,9 @@ class VarietiesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should not destroy variety with association" do
-    assert_raise(ActiveRecord::InvalidForeignKey) do
+    assert_difference("Variety.count", 0) do
       delete variety_url(@variety_one)
     end
-
   end
 
   test "should destroy variety" do

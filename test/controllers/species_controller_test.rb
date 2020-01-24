@@ -40,7 +40,7 @@ class SpeciesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should not destroy species with association" do
-    assert_raise(ActiveRecord::InvalidForeignKey) do
+    assert_difference('Species.count',0) do
       delete species_url(@species_one)
     end
 
