@@ -3,9 +3,9 @@
 crop_one:
   comment: CommentCropOne
   amount: 1.5
-  plot: plot_one
+  plot_id: 1
   variety: variety_one
 
 two:
-  plot: plot_two
+  plot_id: 2
   variety: variety_two

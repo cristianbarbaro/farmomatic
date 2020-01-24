@@ -2,47 +2,76 @@ require 'test_helper'
 
 class CropsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @crop = crops(:one)
+    @crop_one = crops(:crop_one)
   end
 
   test "should get index" do
-    get crops_url
+    get farm_plot_crops_url(farm_id: 1, plot_id: 1)
     assert_response :success
   end
 
   test "should get new" do
-    get new_crop_url
+    get new_farm_plot_crop_url(farm_id: 1, plot_id: 1)
     assert_response :success
   end
 
   test "should create crop" do
     assert_difference('Crop.count') do
-      post crops_url, params: { crop: { amount: @crop.amount, comment: @crop.comment, plot_id: @crop.plot_id, variety_id: @crop.variety_id } }
+      post farm_plot_crops_url(farm_id: 1, plot_id: 1), params: { crop: { amount: @crop_one.amount, comment: @crop_one.comment, plot_id: @crop_one.plot_id, variety_id: @crop_one.variety_id } }
     end
-
-    assert_redirected_to crop_url(Crop.last)
+    assert_redirected_to farm_plot_crops_url(farm_id: 1, plot_id: 1)
+    #assert_redirected_to crop_url(Crop.last)
   end
 
   test "should show crop" do
-    get crop_url(@crop)
+    get farm_plot_crop_url(1, 1, @crop_one)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_crop_url(@crop)
+    get edit_farm_plot_crop_url(1, 1, @crop_one)
     assert_response :success
   end
 
   test "should update crop" do
-    patch crop_url(@crop), params: { crop: { amount: @crop.amount, comment: @crop.comment, plot_id: @crop.plot_id, variety_id: @crop.variety_id } }
-    assert_redirected_to crop_url(@crop)
+    patch farm_plot_crop_url(1, 1, @crop_one), params: { crop: { amount: @crop_one.amount, comment: @crop_one.comment, plot_id: @crop_one.plot_id, variety_id: @crop_one.variety_id } }
+    assert_redirected_to farm_plot_crop_url(1, 1, @crop_one)
   end
 
   test "should destroy crop" do
     assert_difference('Crop.count', -1) do
-      delete crop_url(@crop)
+      delete farm_plot_crop_url(1, 1, @crop_one)
     end
 
-    assert_redirected_to crops_url
+    assert_redirected_to farm_plot_crops_url(farm_id:1 , plot_id:1)
   end
+
+  test "should not create crop if user is viewer" do
+    sign_in users(:viewer_user)
+    assert_difference('Crop.count', 0) do
+      post farm_plot_crops_url(farm_id: 1, plot_id: 1), params: { crop: { amount: @crop_one.amount, comment: @crop_one.comment, plot_id: @crop_one.plot_id, variety_id: @crop_one.variety_id } }
+    end
+    assert_redirected_to root_url
+  end
+
+  test "should not get edit if user is viewer" do
+    sign_in users(:viewer_user)
+    get edit_farm_plot_crop_url(1, 1, @crop_one)
+    assert_redirected_to root_url
+  end
+
+  test "should not update crop if user is viewer" do
+    sign_in users(:viewer_user)
+    patch farm_plot_crop_url(1, 1, @crop_one), params: { crop: { amount: @crop_one.amount, comment: @crop_one.comment, plot_id: @crop_one.plot_id, variety_id: @crop_one.variety_id } }
+    assert_redirected_to root_url
+  end
+
+  test "should not destroy crop if user is viewer" do
+    sign_in users(:viewer_user)
+    assert_difference('Crop.count', 0) do
+      delete farm_plot_crop_url(1, 1, @crop_one)
+    end
+    assert_redirected_to root_url
+  end
+
 end
