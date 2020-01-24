@@ -3,17 +3,17 @@
 novelty_one:
   title: TitleNoveltyOne
   body: BodyTextNoveltyOne
-  user: expert
+  user_id: 2 # expert
   product: product_one
 
 novelty_two:
   title: TitleNoveltyTwo
   body: BodyTextNoveltyTwo
-  user: expert
+  user_id: 2
   variety: variety_one
 
 novelty_three:
   title: TitleNoveltyTwo
   body: BodyTextNoveltyTwo
-  user: expert
+  user_id: 2 # expert
   type_problem: type_problem_two

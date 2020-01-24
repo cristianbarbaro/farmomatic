@@ -2,7 +2,8 @@ require 'test_helper'
 
 class NoveltiesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @novelty = novelties(:one)
+    sign_in users(:expert_user)
+    @novelty_one = novelties(:novelty_one)
   end
 
   test "should get index" do
@@ -17,30 +18,30 @@ class NoveltiesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create novelty" do
     assert_difference('Novelty.count') do
-      post novelties_url, params: { novelty: { body: @novelty.body, title: @novelty.title, user_id: @novelty.user_id } }
+      post novelties_url, params: { novelty: { body: @novelty_one.body, title: @novelty_one.title, user_id: @novelty_one.user_id } }
     end
 
     assert_redirected_to novelty_url(Novelty.last)
   end
 
   test "should show novelty" do
-    get novelty_url(@novelty)
+    get novelty_url(@novelty_one)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_novelty_url(@novelty)
+    get edit_novelty_url(@novelty_one)
     assert_response :success
   end
 
   test "should update novelty" do
-    patch novelty_url(@novelty), params: { novelty: { body: @novelty.body, title: @novelty.title, user_id: @novelty.user_id } }
-    assert_redirected_to novelty_url(@novelty)
+    patch novelty_url(@novelty_one), params: { novelty: { body: @novelty_one.body, title: @novelty_one.title, user_id: @novelty_one.user_id } }
+    assert_redirected_to novelty_url(@novelty_one)
   end
 
   test "should destroy novelty" do
     assert_difference('Novelty.count', -1) do
-      delete novelty_url(@novelty)
+      delete novelty_url(@novelty_one)
     end
 
     assert_redirected_to novelties_url
