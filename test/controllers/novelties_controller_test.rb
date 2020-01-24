@@ -46,4 +46,11 @@ class NoveltiesControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to novelties_url
   end
+
+  test "should not get index if user is not expert" do
+    sign_in users(:owner_user)
+    get novelties_url
+    assert_redirected_to root_url
+  end
+  
 end
