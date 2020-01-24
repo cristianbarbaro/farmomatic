@@ -9,3 +9,7 @@ type_problem_one:
 type_problem_two:
   name: NameTypeProblemTwo
   scientific_name: ScientificNameTypeProblemTwo
+
+type_problem_three:
+  name: NameTypeProblemThree
+  scientific_name: ScientificNameTypeProblemThree # Sin asociación
