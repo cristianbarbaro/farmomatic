@@ -2,47 +2,56 @@ require 'test_helper'
 
 class PlantationsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @plantation = plantations(:one)
+    @plantation_one = plantations(:plantation_one)
   end
 
   test "should get index" do
-    get plantations_url
+    get farm_plot_plantations_url(farm_id: 1, plot_id: 1)
     assert_response :success
   end
 
   test "should get new" do
-    get new_plantation_url
+    get new_farm_plot_plantation_url(farm_id: 1, plot_id: 1)
     assert_response :success
   end
 
   test "should create plantation" do
     assert_difference('Plantation.count') do
-      post plantations_url, params: { plantation: { amount: @plantation.amount, comment: @plantation.comment, plot_id: @plantation.plot_id, species_id: @plantation.species_id } }
+      post farm_plot_plantations_url(farm_id: 1, plot_id: 1), params: { plantation: { amount: @plantation_one.amount, comment: @plantation_one.comment, plot_id: @plantation_one.plot_id, species_id: @plantation_one.species_id } }
     end
 
-    assert_redirected_to plantation_url(Plantation.last)
+    assert_redirected_to farm_plot_plantations_url(farm_id: 1, plot_id: 1)
   end
 
   test "should show plantation" do
-    get plantation_url(@plantation)
+    get farm_plot_plantation_url(1,1,@plantation_one)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_plantation_url(@plantation)
+    get edit_farm_plot_plantation_url(1,1,@plantation_one)
     assert_response :success
   end
 
   test "should update plantation" do
-    patch plantation_url(@plantation), params: { plantation: { amount: @plantation.amount, comment: @plantation.comment, plot_id: @plantation.plot_id, species_id: @plantation.species_id } }
-    assert_redirected_to plantation_url(@plantation)
+    patch farm_plot_plantation_url(1,1,@plantation_one), params: { plantation: { amount: @plantation_one.amount, comment: @plantation_one.comment, plot_id: @plantation_one.plot_id, species_id: @plantation_one.species_id } }
+    assert_redirected_to farm_plot_plantation_url(1,1,@plantation_one)
   end
 
   test "should destroy plantation" do
     assert_difference('Plantation.count', -1) do
-      delete plantation_url(@plantation)
+      delete farm_plot_plantation_url(1,1,@plantation_one)
     end
 
-    assert_redirected_to plantations_url
+    assert_redirected_to farm_plot_plantations_url(farm_id: 1, plot_id: 1)
   end
+
+  test "should not create plantation if user is not owner of farm" do
+    sign_in users(:viewer_user)
+    assert_difference('Plantation.count',0) do
+      post farm_plot_plantations_url(farm_id: 1, plot_id: 1), params: { plantation: { amount: @plantation_one.amount, comment: @plantation_one.comment, plot_id: @plantation_one.plot_id, species_id: @plantation_one.species_id } }
+    end
+    assert_redirected_to farm_plot_plantations_url(farm_id: 1, plot_id: 1)
+  end
+
 end

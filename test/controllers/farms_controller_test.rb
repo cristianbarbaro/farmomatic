@@ -49,20 +49,26 @@ class FarmsControllerTest < ActionDispatch::IntegrationTest
 
   # Viewer tests
 
-  test "should not get edit" do
+  test "should show farm if user is viewer" do
+    sign_in users(:viewer_user)
+    get farm_url(@farm_owner_user)
+    assert_response :success
+  end
+
+  test "should not get edit if user is viewer" do
     sign_in users(:viewer_user)
     get edit_farm_url(@farm_owner_user)
 
     assert_redirected_to root_url
   end
 
-  test "should not update edit" do
+  test "should not update edit if user is viewer" do
     sign_in users(:viewer_user)
     patch farm_url(@farm_owner_user), params: { farm: { description: @farm_owner_user.description, name: @farm_owner_user.name, description: @farm_owner_user.description, address: @farm_owner_user.address } }
     assert_redirected_to root_url
   end
 
-  test "should not destroy farm" do
+  test "should not destroy farm if user is viewer" do
     sign_in users(:viewer_user)
     assert_difference('Farm.count', 0) do
       delete farm_url(@farm_owner_user)

@@ -3,11 +3,11 @@
 plantation_one:
   comment: CommentPlantationOne
   amount: 100.5
-  plot: plot_one
+  plot_id: 1
   species: species_one
 
 plantation_two:
   comment: CommentPlantationTwo
   amount: 1.5
-  plot: plot_two
+  plot_id: 2
   species: species_two
