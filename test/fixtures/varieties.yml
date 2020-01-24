@@ -9,3 +9,7 @@ variety_one:
 variety_two:
   name: NameVarietyTwo
   scientific_name: ScientificNameVarietyTwo
+
+variety_three:
+  name: NameVarietyThree
+  scientific_name: ScientificNameVarietyThree
