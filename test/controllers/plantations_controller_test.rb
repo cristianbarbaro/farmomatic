@@ -51,19 +51,19 @@ class PlantationsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Plantation.count',0) do
       post farm_plot_plantations_url(farm_id: 1, plot_id: 1), params: { plantation: { amount: @plantation_one.amount, comment: @plantation_one.comment, plot_id: @plantation_one.plot_id, species_id: @plantation_one.species_id } }
     end
-    assert_redirected_to farm_plot_plantations_url(farm_id: 1, plot_id: 1)
+    assert_response :redirect
   end
 
   test "should not get edit if user is viewer" do
     sign_in users(:viewer_user)
     get edit_farm_plot_plantation_url(1,1,@plantation_one)
-    assert_redirected_to farm_plot_plantations_url(farm_id: 1, plot_id: 1)
+    assert_response :redirect
   end
 
   test "should not update problem if user is viewer" do
     sign_in users(:viewer_user)
     patch farm_plot_plantation_url(1,1,@plantation_one), params: { plantation: { amount: @plantation_one.amount, comment: @plantation_one.comment, plot_id: @plantation_one.plot_id, species_id: @plantation_one.species_id } }
-    assert_redirected_to farm_plot_plantations_url(farm_id: 1, plot_id: 1)
+    assert_response :redirect # root_url
   end
 
   test "should not destroy if user is viewer" do
@@ -71,7 +71,7 @@ class PlantationsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Plantation.count', 0) do
       delete farm_plot_plantation_url(1,1,@plantation_one)
     end
-    assert_redirected_to farm_plot_plantations_url(farm_id: 1, plot_id: 1)
+    assert_response :redirect # root_url
   end
 
 end
