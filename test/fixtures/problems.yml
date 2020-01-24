@@ -3,8 +3,8 @@
 problem_one:
   comment: CommentProblemOne
   type_problem: type_problem_one
-  plot: plot_one
+  plot_id: 1
 
 problem_two:
   type_problem: type_problem_two
-  plot: plot_two
+  plot_id: 1
