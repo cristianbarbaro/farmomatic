@@ -7,7 +7,6 @@ plantation_one:
   species: species_one
 
 plantation_two:
-  comment: CommentPlantationTwo
   amount: 1.5
   plot_id: 2
   species: species_two

@@ -6,6 +6,7 @@ crop_one:
   plot_id: 1
   variety: variety_one
 
-two:
+crop_two:
   plot_id: 2
   variety: variety_two
+  amount: 1.5
