@@ -24,7 +24,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # Default, user is farmer
-  def assign_default_role
-    self.add_role(:farmer) if self.roles.blank?
-  end
+  #def assign_default_role
+  #  self.add_role(:farmer) if self.roles.blank?
+  #end
 end

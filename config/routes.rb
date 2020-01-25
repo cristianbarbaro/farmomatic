@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   get 'novelties_producers/', to: "novelties_producer#index"
   get 'novelties_producers/:id', to: "novelties_producer#show", as: "novelties_producer"
   devise_for :users
+  scope 'admin', as: 'admin' do
+    resources :users, except: [:new, :create, :destroy]
+  end
   resources :products
   resources :varieties
   resources :novelties

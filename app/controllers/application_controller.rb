@@ -14,4 +14,9 @@ class ApplicationController < ActionController::Base
       redirect_to root_path, notice: "Solo se permite acceso a usuarios expertos."
     end
 
+    def authorized_admin
+      return unless !current_user.has_role? :admin
+      redirect_to root_path, notice: '¡Solo se permite el acceso a usuarios administradores!'
+    end
+
 end

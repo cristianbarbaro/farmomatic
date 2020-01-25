@@ -1,0 +1,19 @@
+<p>
+<strong>Nombre:</strong>
+<%= @user.name %>
+</p>
+
+<p>
+<strong>Correo electrónico:</strong>
+<%= @user.email %>
+</p>
+
+<p>
+<strong>Administrador:</strong>
+<%= @user.has_role? :admin %>
+</p>
+
+<div class="pull-right">
+<%#= link_to 'Editar', edit_species_path(@species), class: "btn btn-success" %>
+<%= link_to 'Atrás', admin_users_path, class: "btn btn-default" %>
+</div>

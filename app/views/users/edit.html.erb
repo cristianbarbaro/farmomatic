@@ -1,0 +1,9 @@
+<h3>Editar permisos de usuario</h3>
+<hr>
+
+<%= render 'form', user: @user %>
+
+<div class="pull-right">
+    <%= link_to 'Ver', admin_user_path(@user), class: "btn btn-primary" %>
+    <%= link_to 'Atrás', admin_users_path, class: "btn btn-default" %>
+</div>
