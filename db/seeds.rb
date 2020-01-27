@@ -118,6 +118,7 @@ variety_two = Variety.create({
 plantation_one = Plantation.create({
     plot_id: plot_one.id,
     species_id: species_one.id,
+    user_id: owner.id,
     amount: 100,
     comment: "Comment plantation one"
 })
@@ -125,6 +126,7 @@ plantation_one = Plantation.create({
 plantation_two = Plantation.create({
     plot_id: plot_one.id,
     species_id: species_one.id,
+    user_id: owner.id,
     amount: 1000,
     comment: "Comment plantation two"
 })
@@ -132,6 +134,7 @@ plantation_two = Plantation.create({
 plantation_three = Plantation.create({
     plot_id: plot_one.id,
     species_id: species_two.id,
+    user_id: owner.id,
     amount: 10,
     comment: "Comment plantation three"
 })
@@ -139,6 +142,7 @@ plantation_three = Plantation.create({
 plantation_four = Plantation.create({
     plot_id: plot_two.id,
     species_id: species_one.id,
+    user_id: owner.id,
     amount: 100,
     comment: "Comment plantation one for plot two"
 })

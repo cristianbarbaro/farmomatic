@@ -19,6 +19,16 @@
   <%= @product_application.plot.identifier %>
 </p>
 
+<p>
+  <strong>Fecha creación:</strong>
+  <%= @product_application.created_at.strftime("%d-%m-%Y %H:%M:%S") %>
+</p>
+
+<p>
+  <strong>Usuario que creó registro:</strong>
+  <%= User.find(@product_application.user_id).email %>
+</p>
+
 <div class="pull-right">
   <%= link_to 'Editar', edit_farm_plot_product_application_path(@farm, @plot, @product_application), class: "btn btn-success" %>
   <%= link_to 'Atrás', farm_plot_product_applications_path, class: "btn btn-default" %>

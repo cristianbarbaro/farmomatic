@@ -19,6 +19,16 @@
   <%= @plantation.species.name %>
 </p>
 
+<p>
+  <strong>Fecha creación:</strong>
+  <%= @plantation.created_at.strftime("%d-%m-%Y %H:%M:%S") %>
+</p>
+
+<p>
+  <strong>Usuario que creó registro:</strong>
+  <%= User.find(@plantation.user_id).email %>
+</p>
+
 <div class="pull-right">
   <%= link_to 'Editar', edit_farm_plot_plantation_path(@farm, @plot, @plantation), class: "btn btn-success" %>
   <%= link_to 'Atrás', farm_plot_plantations_path, class: "btn btn-default" %>
