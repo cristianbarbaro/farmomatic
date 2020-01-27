@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  after_create :assign_default_role
+  #after_create :assign_default_role
 
   rolify
   has_many :publications, :class_name => "Novelty"
