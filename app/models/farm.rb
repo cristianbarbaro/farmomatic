@@ -5,5 +5,5 @@ class Farm < ApplicationRecord
     has_many :users, :through => :assigments, :dependent => :restrict_with_error # raises ActiveRecord::DeleteRestrictionError
 
     validates :name, :description, presence: true
-    validates :name, format: { with: /\A[a-zA-Z ]+\z/ }
+    validates :name, format: { with: /\A[a-zA-Z0-9 ]+\z/ }
 end

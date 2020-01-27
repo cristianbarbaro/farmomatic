@@ -13,6 +13,11 @@
 <%= @user.has_role? :admin %>
 </p>
 
+<p>
+<strong>Experto:</strong>
+<%= @user.has_role? :expert %>
+</p>
+
 <div class="pull-right">
 <%#= link_to 'Editar', edit_species_path(@species), class: "btn btn-success" %>
 <%= link_to 'Atrás', admin_users_path, class: "btn btn-default" %>

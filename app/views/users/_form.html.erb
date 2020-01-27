@@ -23,6 +23,7 @@
     <%= form.hidden_field :user_id, :value => user.id %>
 
     <%= form.check_box :admin?, label: "Administrador", :checked => (user.has_role? :admin) %>
+    <%= form.check_box :expert?, label: "Experto", :checked => (user.has_role? :expert) %>
 
     <div class="actions">
       <%= form.submit "Enviar", class: "btn btn-success" %>

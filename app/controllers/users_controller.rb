@@ -15,15 +15,18 @@ class UsersController < ApplicationController
     def update
 
         if user_params[:user_id]
+            @user = User.find(user_params[:user_id])
 
             if user_params[:admin] == "1"
-
-                @user = User.find(user_params[:user_id])
                 @user.add_role :admin
-                flash[:success] = 'Se ha agregado el rol de administrador al usuario.'
             elsif user_params[:admin] == "0"
                 @user.remove_role :admin
-                flash[:success] = 'Se ha removido el rol de administrador al usuario.'
+            end
+
+            if user_params[:expert] == "1"
+                @user.add_role :expert
+            elsif user_params[:expert] == "0"
+                @user.remove_role :expert
             end
 
             redirect_to admin_user_path @user
@@ -49,7 +52,7 @@ class UsersController < ApplicationController
   
       # Never trust parameters from the scary internet, only allow the white list through.
       def user_params
-        params.require(:user).permit(:user_id, :admin)
+        params.require(:user).permit(:user_id, :admin, :expert)
       end
 
 end

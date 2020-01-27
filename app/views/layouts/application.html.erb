@@ -30,7 +30,7 @@
           <li>
             <%= link_to "Granjas", farms_path, :class => "nav-link" %>
           </li>
-          <% if current_user.has_role? :producer %>
+          <% if current_user.has_role? :owner, :any %>
             <li class="nav-item">
               <%= link_to "Novedades", novelties_producers_path, :class => "nav-link" %>
             </li>
