@@ -14,7 +14,7 @@
 
   <%= form.text_field :comment, label: "Comentario" %>
 
-  <%= form.text_field :amount, label: "Cantidad" %>
+  <%= form.number_field :amount, label: "Cantidad" %>
 
   <%= form.select(:product_id, products_for_select, :prompt => 'Seleccionar') %>
 
