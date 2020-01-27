@@ -10,10 +10,12 @@ class User < ApplicationRecord
   has_many :problems
   has_many :product_applications
   has_many :crops
+  has_many :plantations
 
   has_many :type_problems, :through => :problems
   has_many :products, :through => :product_applications
   has_many :varieties, :through => :crops
+  has_many :species, :through => :plantations
 
 #  has_many :plots, :through => :farms
   
