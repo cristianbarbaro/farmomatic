@@ -4,4 +4,5 @@ class Species < ApplicationRecord
     has_many :plots, through: :plantations
 
     validates :name, presence: true
+    validates :name, format: { with: /\A[a-zA-Z ]+\z/ }
 end

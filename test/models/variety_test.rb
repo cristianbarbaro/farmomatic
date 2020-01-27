@@ -16,7 +16,7 @@ class VarietyTest < ActiveSupport::TestCase
   test "should save variety with correct data" do
     variety = Variety.new({
       name: "new",
-      scientific_name: "scientific_name",
+      scientific_name: "scientific name",
       url: "http://url",
       description: "description"
     })
@@ -26,7 +26,7 @@ class VarietyTest < ActiveSupport::TestCase
   test "should save variety with correct data and without optionals" do
     variety = Variety.new({
       name: "new",
-      scientific_name: "scientific_name"
+      scientific_name: "scientific name"
     })
     assert variety.save
   end

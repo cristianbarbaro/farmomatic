@@ -41,16 +41,10 @@ class PlotsControllerTest < ActionDispatch::IntegrationTest
   
   test "should destroy plot without association" do
     assert_difference('Plot.count', -1) do
-      delete farm_plot_url(2, @plot_three)
+      delete farm_plot_url(1, @plot_three)
     end
   
-    assert_redirected_to farm_plots_url(farm_id: 2)
-  end
-
-  test "should not destroy plot with plantation" do
-    assert_difference('Plot.count',0) do
-      delete farm_plot_url(1, @plot_one)
-    end
+    assert_redirected_to farm_plots_url(farm_id: 1)
   end
 
 end

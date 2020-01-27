@@ -51,7 +51,6 @@ class PlantationsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Plantation.count',0) do
       post farm_plot_plantations_url(farm_id: 1, plot_id: 1), params: { plantation: { amount: @plantation_one.amount, comment: @plantation_one.comment, plot_id: @plantation_one.plot_id, species_id: @plantation_one.species_id } }
     end
-    assert_response :redirect
   end
 
   test "should not get edit if user is viewer" do

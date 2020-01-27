@@ -4,7 +4,7 @@ plot_one:
   id: 1
   identifier: IdentifierPlotOne
   description: DescriptionPlotOne
-  surface: SurfacePlotOne
+  surface: 500
   greenhouse: false
   farm_id: 1 #farm_one
 
@@ -12,7 +12,7 @@ plot_two:
   id: 2
   identifier: IdentifierPlotTwo
   description: DescriptionPlotTwo
-  surface: SurfacePlotTwo
+  surface: 100.5
   greenhouse: true
   farm_id: 2  # farm_two
 
@@ -20,7 +20,7 @@ plot_three:
   id: 3
   identifier: IdentifierPlotThree
   description: DescriptionPlotThree
-  surface: SurfacePlotThree
+  surface: 1000
   greenhouse: true
-  farm_id: 2  # farm_two
+  farm_id: 1  # farm_two
   

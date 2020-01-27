@@ -2,6 +2,7 @@ class ProblemsController < ApplicationController
   before_action :set_farm
   before_action :set_plot
   before_action :set_problem, only: [:show, :edit, :update, :destroy]
+  before_action :check_permissions_owner, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /farms/:farm_id/plots/:plot_id/problems
   def index

@@ -17,7 +17,7 @@ class PlotTest < ActiveSupport::TestCase
     plot = Plot.new({
       identifier: "identifier",
       description: "description",
-      surface: "surface",
+      surface: 150.50,
       greenhouse: false,
       farm_id: @farm_one.id
     })

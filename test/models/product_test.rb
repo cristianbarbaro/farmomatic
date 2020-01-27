@@ -15,9 +15,9 @@ class ProductTest < ActiveSupport::TestCase
 
   test "should save product with correct data" do
     product = Product.new({
-      name: "product_name",
-      composition: "composition_product",
-      description: "description_product"
+      name: "product name",
+      composition: "composition product",
+      description: "description product"
     })
     assert product.save
   end
@@ -25,16 +25,16 @@ class ProductTest < ActiveSupport::TestCase
   test "should not save product with incorrect data" do
     product = Product.new({
       name: 1,
-      composition: "composition_product",
-      description: "description_product"
+      composition: "composition product",
+      description: "description product"
     })
     assert_not product.save
   end
 
   test "should save product without optionals" do
     product = Product.new({
-      name: "product_name",
-      composition: "composition_product"
+      name: "product name",
+      composition: "composition product"
     })
     assert product.save
   end

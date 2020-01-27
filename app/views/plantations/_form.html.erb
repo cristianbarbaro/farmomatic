@@ -13,7 +13,7 @@
 
   <%= form.text_field :comment, label: "Comentario" %>
 
-  <%= form.text_field :amount, label: "Cantidad" %>
+  <%= form.number_field :amount, step: 0, label: "Cantidad", value: plantation.amount %>
 
   <%= form.select(:species_id, species_for_select, :prompt => 'Seleccionar') %>
 
