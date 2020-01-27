@@ -7,17 +7,17 @@ module NoveltiesProducerHelper
                     novelties << n
                 end
             end
-            if not n.product.nil?
-                if  user.products.exists? n.variety.id
+            if not n.type_problem.nil?
+                if  user.type_problems.exists? n.type_problem.id
                     novelties << n
                 end
             end
             if not n.product.nil?
-                if  user.products.exists? n.variety.id
+                if  user.products.exists? n.product.id
                     novelties << n
                 end
             end   
         end
-        novelties
+        novelties.uniq
     end
 end
