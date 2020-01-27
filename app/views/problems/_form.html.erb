@@ -13,6 +13,8 @@
 
   <%= form.text_field :comment, label: "Comentario" %>
 
+  <%= form.hidden_field :user_id, :value => current_user.id %>
+
   <%= form.select(:type_problem_id, type_problems_for_select, :prompt => 'Select') %>
   
   <div class="actions">

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_21_233308) do
+ActiveRecord::Schema.define(version: 2020_01_27_203940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,9 @@ ActiveRecord::Schema.define(version: 2020_01_21_233308) do
     t.bigint "variety_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["plot_id"], name: "index_crops_on_plot_id"
+    t.index ["user_id"], name: "index_crops_on_user_id"
     t.index ["variety_id"], name: "index_crops_on_variety_id"
   end
 
@@ -86,8 +88,10 @@ ActiveRecord::Schema.define(version: 2020_01_21_233308) do
     t.bigint "plot_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["plot_id"], name: "index_problems_on_plot_id"
     t.index ["type_problem_id"], name: "index_problems_on_type_problem_id"
+    t.index ["user_id"], name: "index_problems_on_user_id"
   end
 
   create_table "product_applications", force: :cascade do |t|
@@ -97,8 +101,10 @@ ActiveRecord::Schema.define(version: 2020_01_21_233308) do
     t.bigint "plot_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["plot_id"], name: "index_product_applications_on_plot_id"
     t.index ["product_id"], name: "index_product_applications_on_product_id"
+    t.index ["user_id"], name: "index_product_applications_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -167,6 +173,7 @@ ActiveRecord::Schema.define(version: 2020_01_21_233308) do
   add_foreign_key "assigments", "farms"
   add_foreign_key "assigments", "users"
   add_foreign_key "crops", "plots"
+  add_foreign_key "crops", "users"
   add_foreign_key "crops", "varieties"
   add_foreign_key "novelties", "products"
   add_foreign_key "novelties", "type_problems"
@@ -176,6 +183,8 @@ ActiveRecord::Schema.define(version: 2020_01_21_233308) do
   add_foreign_key "plantations", "species"
   add_foreign_key "problems", "plots"
   add_foreign_key "problems", "type_problems"
+  add_foreign_key "problems", "users"
   add_foreign_key "product_applications", "plots"
   add_foreign_key "product_applications", "products"
+  add_foreign_key "product_applications", "users"
 end

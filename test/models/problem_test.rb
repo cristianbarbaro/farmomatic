@@ -16,6 +16,7 @@ class ProblemTest < ActiveSupport::TestCase
     problem = Problem.new({
       type_problem_id: @type_problem_one.id,
       plot_id: @plot_one.id,
+      user_id: 1,
       comment: "comment"
     })
     assert problem.save
@@ -24,7 +25,8 @@ class ProblemTest < ActiveSupport::TestCase
   test "should save problem without optionals" do
     problem = Problem.new({
       type_problem_id: @type_problem_one.id,
-      plot_id: @plot_one.id
+      plot_id: @plot_one.id,
+      user_id: 1,
     })
     assert problem.save
   end

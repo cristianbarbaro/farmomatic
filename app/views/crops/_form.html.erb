@@ -13,6 +13,8 @@
 
   <%= form.text_field :comment, label: "Comentario" %>
 
+  <%= form.hidden_field :user_id, :value => current_user.id %>
+
   <%= form.number_field :amount, label: "Cantidad" %>
 
   <%= form.select(:variety_id, varieties_for_select, :prompt => 'Seleccionar') %>

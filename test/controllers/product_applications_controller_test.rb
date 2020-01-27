@@ -17,7 +17,7 @@ class ProductApplicationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create product_application" do
     assert_difference('ProductApplication.count') do
-      post farm_plot_product_applications_url(farm_id: 1, plot_id: 1), params: { product_application: { amount: @product_application_one.amount, comment: @product_application_one.comment, plot_id: @product_application_one.plot_id, product_id: @product_application_one.product_id } }
+      post farm_plot_product_applications_url(farm_id: 1, plot_id: 1), params: { product_application: { amount: @product_application_one.amount, comment: @product_application_one.comment, plot_id: @product_application_one.plot_id, product_id: @product_application_one.product_id, user_id: 1 } }
     end
 
     assert_redirected_to farm_plot_product_applications_url(farm_id: 1, plot_id: 1)
@@ -34,7 +34,7 @@ class ProductApplicationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update product_application" do
-    patch farm_plot_product_application_url(1, 1, @product_application_one), params: { product_application: { amount: @product_application_one.amount, comment: @product_application_one.comment, plot_id: @product_application_one.plot_id, product_id: @product_application_one.product_id } }
+    patch farm_plot_product_application_url(1, 1, @product_application_one), params: { product_application: { amount: @product_application_one.amount, comment: @product_application_one.comment, plot_id: @product_application_one.plot_id, product_id: @product_application_one.product_id, user_id: 1 } }
     assert_redirected_to farm_plot_product_application_url(1, 1, @product_application_one)
   end
 
@@ -49,7 +49,7 @@ class ProductApplicationsControllerTest < ActionDispatch::IntegrationTest
   test "should not create product_application if user is viewer of farm" do
     sign_in users(:viewer_user)
     assert_difference('ProductApplication.count', 0) do
-      post farm_plot_product_applications_url(farm_id: 1, plot_id: 1), params: { product_application: { amount: @product_application_one.amount, comment: @product_application_one.comment, plot_id: @product_application_one.plot_id, product_id: @product_application_one.product_id } }
+      post farm_plot_product_applications_url(farm_id: 1, plot_id: 1), params: { product_application: { amount: @product_application_one.amount, comment: @product_application_one.comment, plot_id: @product_application_one.plot_id, product_id: @product_application_one.product_id, user_id: 1 } }
     end
     assert_response :redirect
   end

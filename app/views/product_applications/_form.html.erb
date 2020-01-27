@@ -16,6 +16,8 @@
 
   <%= form.number_field :amount, label: "Cantidad" %>
 
+  <%= form.hidden_field :user_id, :value => current_user.id %>
+
   <%= form.select(:product_id, products_for_select, :prompt => 'Seleccionar') %>
 
   <div class="actions">

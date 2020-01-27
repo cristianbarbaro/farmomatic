@@ -25,7 +25,7 @@ class FarmsController < ApplicationController
     @farm = Farm.new(farm_params)
 
       if @farm.save
-        @farm.users << current_user
+        #@farm.users << current_user
         # Add admin in farm role to user associated. User is current_user (logged in)
         current_user.add_role :owner, @farm
         redirect_to @farm, notice: 'Farm was successfully created.'

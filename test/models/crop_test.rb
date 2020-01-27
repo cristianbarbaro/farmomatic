@@ -17,6 +17,7 @@ class CropTest < ActiveSupport::TestCase
     crop = Crop.new({
       plot_id: @plot_one.id,
       variety_id: @variety_one.id,
+      user_id: 1,
       comment: "comment",
       amount: 2
     })
@@ -27,6 +28,7 @@ class CropTest < ActiveSupport::TestCase
     crop = Crop.new({
       plot_id: @plot_one.id,
       variety_id: @variety_one.id,
+      user_id: 1,
       amount: 2
     })
     assert crop.save

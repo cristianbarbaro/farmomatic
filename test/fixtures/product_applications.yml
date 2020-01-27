@@ -5,8 +5,10 @@ product_application_one:
   amount: 1.5
   product: product_one
   plot_id: 1
+  user_id: 1
 
 product_application_two:
   amount: 1.5
   product: product_two
   plot_id: 2
+  user_id: 2

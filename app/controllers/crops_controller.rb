@@ -64,6 +64,6 @@ class CropsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def crop_params
-      params.require(:crop).permit(:comment, :amount, :variety_id)
+      params.require(:crop).permit(:comment, :amount, :variety_id, :user_id)
     end
 end

@@ -17,7 +17,7 @@ class CropsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create crop" do
     assert_difference('Crop.count') do
-      post farm_plot_crops_url(farm_id: 1, plot_id: 1), params: { crop: { amount: @crop_one.amount, comment: @crop_one.comment, plot_id: @crop_one.plot_id, variety_id: @crop_one.variety_id } }
+      post farm_plot_crops_url(farm_id: 1, plot_id: 1), params: { crop: { amount: @crop_one.amount, comment: @crop_one.comment, user_id: 1, plot_id: @crop_one.plot_id, variety_id: @crop_one.variety_id } }
     end
     assert_redirected_to farm_plot_crops_url(farm_id: 1, plot_id: 1)
     #assert_redirected_to crop_url(Crop.last)
@@ -34,7 +34,7 @@ class CropsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update crop" do
-    patch farm_plot_crop_url(1, 1, @crop_one), params: { crop: { amount: @crop_one.amount, comment: @crop_one.comment, plot_id: @crop_one.plot_id, variety_id: @crop_one.variety_id } }
+    patch farm_plot_crop_url(1, 1, @crop_one), params: { crop: { amount: @crop_one.amount, comment: @crop_one.comment, plot_id: @crop_one.plot_id, user_id: 1, variety_id: @crop_one.variety_id } }
     assert_redirected_to farm_plot_crop_url(1, 1, @crop_one)
   end
 

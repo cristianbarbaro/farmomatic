@@ -5,8 +5,10 @@ crop_one:
   amount: 1.5
   plot_id: 1
   variety: variety_one
+  user_id: 1
 
 crop_two:
   plot_id: 2
   variety: variety_two
   amount: 1.5
+  user_id: 2

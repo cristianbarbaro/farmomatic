@@ -17,7 +17,7 @@ class ProblemsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create problem" do
     assert_difference('Problem.count') do
-      post farm_plot_problems_url(farm_id:1, plot_id:1), params: { problem: { comment: @problem_one.comment, plot_id: @problem_one.plot_id, type_problem_id: @problem_one.type_problem_id } }
+      post farm_plot_problems_url(farm_id:1, plot_id:1), params: { problem: { comment: @problem_one.comment, plot_id: @problem_one.plot_id, type_problem_id: @problem_one.type_problem_id, user_id: 1 } }
     end
 
     assert_redirected_to farm_plot_problems_url(farm_id: 1, plot_id: 1)
@@ -34,7 +34,7 @@ class ProblemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update problem" do
-    patch farm_plot_problem_url(1, 1, @problem_one), params: { problem: { comment: @problem_one.comment, plot_id: @problem_one.plot_id, type_problem_id: @problem_one.type_problem_id } }
+    patch farm_plot_problem_url(1, 1, @problem_one), params: { problem: { comment: @problem_one.comment, plot_id: @problem_one.plot_id, type_problem_id: @problem_one.type_problem_id, user_id: 1 } }
     assert_redirected_to farm_plot_problem_url(1, 1, @problem_one)
   end
 

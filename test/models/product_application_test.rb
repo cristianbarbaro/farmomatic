@@ -17,6 +17,7 @@ class ProductApplicationTest < ActiveSupport::TestCase
     product_application = ProductApplication.new({
       product_id: @product_one.id,
       plot_id: @plot_one.id,
+      user_id: 1,
       amount: 100,
       comment: "comment"
     })
@@ -27,6 +28,7 @@ class ProductApplicationTest < ActiveSupport::TestCase
     product_application = ProductApplication.new({
       product_id: @product_one.id,
       plot_id: @plot_one.id,
+      user_id: 1,
       amount: 100
     })
     assert product_application.save
