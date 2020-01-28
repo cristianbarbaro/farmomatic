@@ -6,5 +6,5 @@
 <div class="pull-right">
     <%= link_to 'Borrar', [@farm, @plot], class:'btn btn-danger', method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar el elemento?' }, title: 'Borrar' %>
     <%= link_to 'Ver', [@farm, @plot], class: "btn btn-primary" %>
-    <%= link_to 'Atrás', farm_plots_path, class: "btn btn-default" %>
+    <%= link_to 'Atrás', :back, class: "btn btn-default" %>
 </div>

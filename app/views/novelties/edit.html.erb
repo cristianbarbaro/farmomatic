@@ -5,5 +5,5 @@
 <div class="pull-right">
     <%= link_to 'Borrar', @novelty, class:'btn btn-danger', method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar el elemento?' }, title: 'Borrar' %>
     <%= link_to 'Ver', @novelty, :class => 'btn-primary btn' %>
-    <%= link_to 'Atrás', novelties_path, :class => " btn btn-default" %>
+    <%= link_to 'Atrás', :back, :class => " btn btn-default" %>
 </div>
