@@ -4,9 +4,11 @@ plantation_one:
   comment: CommentPlantationOne
   amount: 100
   plot_id: 1
+  user_id: 1
   species: species_one
 
 plantation_two:
   amount: 50
   plot_id: 2
+  user_id: 2
   species: species_two

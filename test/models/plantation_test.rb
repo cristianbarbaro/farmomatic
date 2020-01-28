@@ -17,6 +17,7 @@ class PlantationTest < ActiveSupport::TestCase
     plantation = Plantation.new({
       plot_id: @plot_one.id,
       species_id: @species_one.id,
+      user_id: 1,
       amount: 20.5,
       comment: "comment"
     })
@@ -27,6 +28,7 @@ class PlantationTest < ActiveSupport::TestCase
     plantation = Plantation.new({
       plot_id: @plot_one.id,
       species_id: @species_one.id,
+      user_id: 1,
       amount: 20.5
     })
     assert plantation.save
