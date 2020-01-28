@@ -4,7 +4,6 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Comentario</th>
       <th>Cantidad</th>
       <th>Lote</th>
       <th>Especies</th>
@@ -15,7 +14,6 @@
   <tbody>
     <% @plantations.each do |plantation| %>
       <tr>
-        <td><%= plantation.comment %></td>
         <td><%= plantation.amount %></td>
         <td><%= plantation.plot.identifier %></td>
         <td><%= plantation.species.name %></td>

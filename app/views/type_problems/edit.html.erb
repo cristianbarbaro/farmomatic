@@ -3,6 +3,7 @@
 <%= render 'form', type_problem: @type_problem %>
 
 <div class="pull-right">
+    <%= link_to 'Borrar', @type_problem, class:'glyphicon glyphicon-trash btn btn-xs btn-danger', method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar el elemento?' }, title: 'Borrar' %>
     <%= link_to 'Ver', @type_problem, class: "btn btn-primary" %>
     <%= link_to 'Atrás', type_problems_path, class: "btn btn-default" %>
 </div>

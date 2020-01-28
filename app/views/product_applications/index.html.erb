@@ -4,7 +4,6 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Comentario</th>
       <th>Cantidad</th>
       <th>Producto</th>
       <th>Lote</th>
@@ -15,7 +14,6 @@
   <tbody>
     <% @product_applications.each do |product_application| %>
       <tr>
-        <td><%= product_application.comment %></td>
         <td><%= product_application.amount %></td>
         <td><%= product_application.product.name %></td>
         <td><%= product_application.plot.identifier %></td>

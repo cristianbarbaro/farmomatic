@@ -21,7 +21,7 @@
           <%= link_to '', farm, class:'glyphicon glyphicon-eye-open btn btn-xs btn-default', title: 'Ver' %>
           <% if user_is_owner? farm %>
             <%= link_to '', edit_farm_path(farm), class:'glyphicon glyphicon-pencil btn btn-xs btn-default', title: 'Editar' %>
-            <%= link_to '', farm, class:'glyphicon glyphicon-trash btn btn-xs btn-danger', method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar el elemento?' }, title: 'Borrar' %>
+            <%#= link_to '', farm, class:'glyphicon glyphicon-trash btn btn-xs btn-danger', method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar el elemento?' }, title: 'Borrar' %>
           <% end %>
         </td>
       </tr>

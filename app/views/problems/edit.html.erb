@@ -3,6 +3,7 @@
 <%= render 'form', problem: @problem, plot: @plot, farm: @farm %>
 
 <div class="pull-right">
+    <%= link_to 'Borrar', [@farm, @plot, @problem], class:'btn btn-danger', method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar el elemento?' }, title: 'Borrar' %>
     <%= link_to 'Ver', [@farm, @plot, @problem], class: "btn btn-primary" %>
     <%= link_to 'Atrás', farm_plot_problems_path, class: "btn btn-default" %>
 </div>
