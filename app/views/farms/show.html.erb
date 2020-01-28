@@ -47,6 +47,7 @@
 <% end %>
 
 <div class="pull-right">
+  <%= link_to 'Borrar', @farm, class:'btn btn-danger', method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar el elemento?' }, title: 'Borrar' %>
   <% if user_is_owner? @farm %>
     <%= link_to 'Editar', edit_farm_path(@farm), class: "btn btn-success" %>
   <% end %>

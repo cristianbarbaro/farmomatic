@@ -39,12 +39,15 @@ class FarmsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to farm_url(@farm_owner_user)
   end
 
-  test "should destroy farm" do
-    assert_difference('Farm.count', -1) do
+  test "should remove farm for user if want destroy it" do
+    assert_difference('Farm.count', 0) do
       delete farm_url(@farm_owner_user)
     end
 
     assert_redirected_to farms_url
+
+    get farm_url(@farm_owner_user)
+    assert_response 403
   end
 
   # Viewer tests
@@ -75,5 +78,8 @@ class FarmsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to root_url
+
+    get farm_url(@farm_owner_user)
+    assert_response 403
   end
 end

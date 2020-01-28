@@ -1,6 +1,6 @@
 class FarmsController < ApplicationController
   before_action :set_farm, only: [:show, :edit, :update, :destroy]
-  before_action :check_permissions_owner, only: [:edit, :update, :destroy]
+  before_action :check_permissions_owner, only: [:edit, :update]
 
   # GET /farms
   def index
@@ -45,8 +45,11 @@ class FarmsController < ApplicationController
 
   # DELETE /farms/1
   def destroy
-    @farm.destroy
-      redirect_to farms_url, notice: 'Farm was successfully destroyed.'
+    # Las granjas no pueden borrarse.
+    current_user.remove_role :owner, @farm
+    current_user.remove_role :viewer, @farm
+    #@farm.destroy
+    redirect_to farms_url, notice: 'Farm was successfully destroyed.'
   end
 
   private
