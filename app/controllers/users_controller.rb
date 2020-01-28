@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    include UsersHelper
     before_action :set_user, only: [:show, :edit, :update, :destroy]
     before_action :authorized_admin
 
@@ -16,18 +17,7 @@ class UsersController < ApplicationController
 
         if user_params[:user_id]
             @user = User.find(user_params[:user_id])
-
-            if user_params[:admin] == "1"
-                @user.add_role :admin
-            elsif user_params[:admin] == "0"
-                @user.remove_role :admin
-            end
-
-            if user_params[:expert] == "1"
-                @user.add_role :expert
-            elsif user_params[:expert] == "0"
-                @user.remove_role :expert
-            end
+            change_roles(params)
 
             redirect_to admin_user_path @user
         else
