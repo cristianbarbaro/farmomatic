@@ -57,6 +57,11 @@
               </ul>
             </li>
           <% end %>
+          <% if current_user.has_role? :admin %>
+            <li class="nav-item">
+              <%= link_to "Usuarios", admin_users_path, :class => "nav-link" %>
+            </li>
+          <% end %>
         <% end %>
       </ul>
       <form class="navbar-form navbar-left">
