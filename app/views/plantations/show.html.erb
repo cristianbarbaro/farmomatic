@@ -16,7 +16,20 @@
 
 <p>
   <strong>Especie:</strong>
-  <%= @plantation.species.name %>
+  <% if @plantation.species %>
+    <%= @plantation.species.name %>
+  <% else %>
+    -
+  <% end %>
+</p>
+
+<p>
+  <strong>Otros:</strong>
+  <% if @plantation.other %>
+    <%= @plantation.other.name %>
+  <% else %>
+    -
+  <% end %>
 </p>
 
 <p>

@@ -11,7 +11,20 @@
 
 <p>
   <strong>Producto:</strong>
-  <%= @product_application.product.name %>
+  <% if @product_application.product %>
+    <%= @product_application.product.name %>
+  <% else %>
+    -
+  <% end %>
+</p>
+
+<p>
+  <strong>Otros:</strong>
+  <% if @product_application.other %>
+    <%= @product_application.other.name %>
+  <% else %>
+    -
+  <% end %>
 </p>
 
 <p>

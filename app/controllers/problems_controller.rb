@@ -16,6 +16,7 @@ class ProblemsController < ApplicationController
   # GET /farms/:farm_id/plots/:plot_id/problems/new
   def new
     @problem = @plot.problems.build
+    @problem.build_other
   end
 
   # GET /farms/:farm_id/plots/:plot_id/problems/:id/edit
@@ -25,7 +26,7 @@ class ProblemsController < ApplicationController
   # POST /farms/:farm_id/plots/:plot_id/problems
   def create
     @problem = @plot.problems.build(problem_params)
-
+    @problem.remove_blank_other
     if @problem.save
       redirect_to farm_plot_problems_path(@farm, @plot), notice: 'Problem was successfully created.'
     else
@@ -64,6 +65,7 @@ class ProblemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def problem_params
-      params.require(:problem).permit(:comment, :type_problem_id, :user_id)
+      params.require(:problem).permit(:comment, :type_problem_id, :user_id,
+                                      other_attributes: [:id, :name, :description])
     end
 end

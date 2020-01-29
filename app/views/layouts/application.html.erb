@@ -90,7 +90,7 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-  <body>
+  <body onload="hideOthers()">
     <div class="container col-md-8 col-md-offset-2">
       <% if notice %>
         <div class="alert alert-success" role="alert">
@@ -105,7 +105,20 @@
   </body>
 
   <script>
-    $('.dropdown-toggle').dropdown()
+    $('.dropdown-toggle').dropdown();
+    
+    function hideOthers() {
+      document.getElementById("OthersForm").style.visibility = "hidden";
+    };
+
+    function showHide() {
+      var x = document.getElementById("OthersForm");
+      if (x.style.visibility === "hidden") {
+        x.style.visibility = "visible";
+      } else {
+        x.style.visibility = "hidden";
+      }
+    }
   </script>
 
 </html>

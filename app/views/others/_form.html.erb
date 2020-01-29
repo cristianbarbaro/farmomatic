@@ -1,0 +1,7 @@
+<div id="OthersForm">
+<hr>
+<%= form.fields_for :other do |other_fields| %>
+  <%= other_fields.text_field :name, label: "Nombre otros" %>
+  <%= other_fields.text_field :description, label: "Descripción otros" %>
+<% end %>
+</div>

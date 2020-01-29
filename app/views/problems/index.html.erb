@@ -6,6 +6,7 @@
     <tr>
       <th>Tipo de problema</th>
       <th>Lote</th>
+      <th>Otros</th>
       <th colspan="3">Acciones</th>
     </tr>
   </thead>
@@ -13,8 +14,21 @@
   <tbody>
     <% @problems.each do |problem| %>
       <tr>
-        <td><%= problem.type_problem.name %></td>
-        <td><%= problem.plot.identifier %></td>
+      <td>
+      <% if problem.type_problem %>
+      <%= problem.type_problem.name %>
+      <% else %>
+      -
+      <% end %>
+      </td>
+      <td><%= problem.plot.identifier %></td>
+      <td>
+        <% if problem.other %>
+          <%= problem.other.name %>
+        <% else %>
+          -
+        <% end %>
+      </td>
         <td>
           <%= link_to '', [@farm, @plot, problem], class:'glyphicon glyphicon-eye-open btn btn-xs btn-default', title: 'Ver' %>
           <%= link_to '', edit_farm_plot_problem_path(@farm, @plot, problem), class:'glyphicon glyphicon-pencil btn btn-xs btn-default', title: 'Editar' %>

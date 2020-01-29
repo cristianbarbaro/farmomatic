@@ -16,6 +16,7 @@ class CropsController < ApplicationController
   # GET /farms/:farm_id/plots/:plot_id/crops/new
   def new
     @crop = @plot.crops.build
+    @crop.build_other
   end
 
   # GET /farms/:farm_id/plots/:plot_id/crops/:id/edit
@@ -25,7 +26,7 @@ class CropsController < ApplicationController
   # POST /farms/:farm_id/plots/:plot_id/crops
   def create
     @crop = @plot.crops.build(crop_params)
-
+    @crop.remove_blank_other
     if @crop.save
       redirect_to farm_plot_crops_path(@farm, @plot), notice: 'Crop was successfully created.'
     else
@@ -64,6 +65,7 @@ class CropsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def crop_params
-      params.require(:crop).permit(:comment, :amount, :variety_id, :user_id)
+      params.require(:crop).permit(:comment, :amount, :variety_id, :user_id, 
+                                  other_attributes: [:id, :name, :description])
     end
 end

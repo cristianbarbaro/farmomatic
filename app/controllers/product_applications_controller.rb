@@ -16,6 +16,7 @@ class ProductApplicationsController < ApplicationController
   # GET /farms/:farm_id/plots/:plot_id/product_applications/new
   def new
     @product_application = @plot.product_applications.build
+    @product_application.build_other
   end
 
   # GET /farms/:farm_id/plots/:plot_id/product_applications/:id/edit
@@ -25,7 +26,7 @@ class ProductApplicationsController < ApplicationController
   # POST /farms/:farm_id/plots/:plot_id/product_applications
   def create
     @product_application = @plot.product_applications.build(product_application_params)
-
+    @product_application.remove_blank_other
     if @product_application.save
       redirect_to farm_plot_product_applications_path(@farm, @plot), notice: 'Product application was successfully created.'
     else
@@ -64,6 +65,7 @@ class ProductApplicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_application_params
-      params.require(:product_application).permit(:comment, :amount, :product_id, :user_id)
+      params.require(:product_application).permit(:comment, :amount, :product_id, :user_id,
+                                                  other_attributes: [:id, :name, :description])
     end
 end

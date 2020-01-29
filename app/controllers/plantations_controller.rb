@@ -16,6 +16,7 @@ class PlantationsController < ApplicationController
   # GET /farms/:farm_id/plots/:plot_id/plantations/new
   def new
     @plantation = @plot.plantations.build
+    @plantation.build_other
   end
 
   # GET /farms/:farm_id/plots/:plot_id/plantations/:id/edit
@@ -25,7 +26,7 @@ class PlantationsController < ApplicationController
   # POST /farms/:farm_id/plots/:plot_id/plantations
   def create
     @plantation = @plot.plantations.build(plantation_params)
-
+    @plantation.remove_blank_other
     if @plantation.save
       redirect_to farm_plot_plantations_path(@farm, @plot), notice: 'Plantation was successfully created.'
     else
@@ -64,6 +65,7 @@ class PlantationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plantation_params
-      params.require(:plantation).permit(:comment, :amount, :species_id, :user_id)
+      params.require(:plantation).permit(:comment, :amount, :species_id, :user_id, 
+                                        other_attributes: [:id, :name, :description])
     end
 end

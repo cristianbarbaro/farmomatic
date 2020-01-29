@@ -5,8 +5,9 @@
   <thead>
     <tr>
       <th>Cantidad</th>
-      <th>Producto</th>
       <th>Lote</th>
+      <th>Producto</th>
+      <th>Otros</th>
       <th colspan="3">Acciones</th>
     </tr>
   </thead>
@@ -15,8 +16,21 @@
     <% @product_applications.each do |product_application| %>
       <tr>
         <td><%= product_application.amount %></td>
-        <td><%= product_application.product.name %></td>
         <td><%= product_application.plot.identifier %></td>
+        <td>
+          <% if product_application.product %>
+            <%= product_application.product.name %>
+          <% else %>
+            -
+          <% end %>
+        </td>
+        <td>
+          <% if product_application.other %>
+            <%= product_application.other.name %>
+          <% else %>
+            -
+          <% end %>
+        </td>
         <td>
           <%= link_to '', [@farm, @plot, product_application], class:'glyphicon glyphicon-eye-open btn btn-xs btn-default', title: 'Ver' %>
           <%= link_to '', edit_farm_plot_product_application_path(@farm, @plot, product_application), class:'glyphicon glyphicon-pencil btn btn-xs btn-default', title: 'Editar' %>

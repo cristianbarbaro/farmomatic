@@ -18,7 +18,11 @@
   <%= form.number_field :amount, label: "Cantidad" %>
 
   <%= form.select(:variety_id, varieties_for_select, :prompt => 'Seleccionar') %>
+  
+  <a onclick="showHide()">Otros (si no encuentra la opción en la lista, puede agregar un valor propio)</a>
 
+  <%= render 'others/form', form: form %>
+  
   <div class="actions">
     <%= form.submit "Enviar", class: "btn btn-success" %>
   </div>

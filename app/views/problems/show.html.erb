@@ -6,7 +6,20 @@
 
 <p>
   <strong>Tipo de problema:</strong>
-  <%= @problem.type_problem.name %>
+  <% if @problem.type_problem %>
+    <%= @problem.type_problem.name %>
+  <% else %>
+    -
+  <% end %>
+</p>
+
+<p>
+  <strong>Otros:</strong>
+  <% if @problem.other %>
+    <%= @problem.other.name %>
+  <% else %>
+    -
+  <% end %>
 </p>
 
 <p>

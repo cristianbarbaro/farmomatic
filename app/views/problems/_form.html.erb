@@ -16,6 +16,10 @@
   <%= form.hidden_field :user_id, :value => current_user.id %>
 
   <%= form.select(:type_problem_id, type_problems_for_select, :prompt => 'Select') %>
+    
+  <a onclick="showHide()">Otros (si no encuentra la opción en la lista, puede agregar un valor propio)</a>
+
+  <%= render 'others/form', form: form %>
   
   <div class="actions">
     <%= form.submit "Enviar", class: "btn btn-success" %>

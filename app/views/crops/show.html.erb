@@ -16,7 +16,20 @@
 
 <p>
   <strong>Variedad:</strong>
-  <%= @crop.variety.name %>
+  <% if @crop.variety %>
+    <%= @crop.variety.name %>
+  <% else %>
+    -
+  <% end %>
+</p>
+
+<p>
+  <strong>Otros:</strong>
+  <% if @crop.other %>
+    <%= @crop.other.name %>
+  <% else %>
+    -
+  <% end %>
 </p>
 
 <p>
