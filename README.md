@@ -10,7 +10,7 @@
     * `docker-compose up -d`
 
 * Una vez levantado el servicio es necesario iniciar la base de datos para que podamos utilizar el sistema. Para ello, debemos acceder al contenedor que corre nuestra aplicación y ejecutar el comando allí:
-    * `docker exec -it farmomatic_web_1 bash`
+    * `docker exec -it farmomatic bash`
     * `rails db:reset`
 
 * Ahora se puede acceder al servicio mediante la url http://localhost:3000.
