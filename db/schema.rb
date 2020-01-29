@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_27_222825) do
+ActiveRecord::Schema.define(version: 2020_01_29_113608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,21 @@ ActiveRecord::Schema.define(version: 2020_01_27_222825) do
     t.index ["type_problem_id"], name: "index_novelties_on_type_problem_id"
     t.index ["user_id"], name: "index_novelties_on_user_id"
     t.index ["variety_id"], name: "index_novelties_on_variety_id"
+  end
+
+  create_table "others", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "plantation_id"
+    t.bigint "problem_id"
+    t.bigint "product_application_id"
+    t.bigint "crop_id"
+    t.index ["crop_id"], name: "index_others_on_crop_id"
+    t.index ["plantation_id"], name: "index_others_on_plantation_id"
+    t.index ["problem_id"], name: "index_others_on_problem_id"
+    t.index ["product_application_id"], name: "index_others_on_product_application_id"
   end
 
   create_table "plantations", force: :cascade do |t|
@@ -181,6 +196,10 @@ ActiveRecord::Schema.define(version: 2020_01_27_222825) do
   add_foreign_key "novelties", "type_problems"
   add_foreign_key "novelties", "users"
   add_foreign_key "novelties", "varieties"
+  add_foreign_key "others", "crops"
+  add_foreign_key "others", "plantations"
+  add_foreign_key "others", "problems"
+  add_foreign_key "others", "product_applications"
   add_foreign_key "plantations", "plots"
   add_foreign_key "plantations", "species"
   add_foreign_key "plantations", "users"
